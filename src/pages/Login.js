@@ -14,7 +14,7 @@ function Login(){
 
                         <div className="login_box_01">
                             <div className="title_13px">암호</div>
-                            <input type="text" id="password" name="password" placeholder="비밀번호를를 입력하세요."/>
+                            <input type="password" id="password" name="password" placeholder="비밀번호를를 입력하세요."/>
                         </div>
 
                         <div className="login_box_02">
@@ -35,6 +35,13 @@ function Login(){
                             </div>
                     </div>
                 </div>
+                    <div className="container_outbox_02">
+                    <div className="testbox2222">
+                        <img className="Logo" src="./images/naillo_logo.png"></img>
+                    </div>
+                    <div className="text_test2222">“배움을 통해 내일로 나아가는 플랫폼”
+Learn today, Lead Tomorrow.</div>
+                    </div>
                 </div>
             </div>
         </main>
