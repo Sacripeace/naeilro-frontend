@@ -29,6 +29,7 @@ const HeaderWrapper = styled.div`
     & > div > div > p{
         font-size : 28px;
         color : white;
+        margin-left : 6px;
     }
     
     & > div > p{
