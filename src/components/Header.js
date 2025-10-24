@@ -6,8 +6,7 @@ const HeaderWrapper = styled.div`
     width : 100%;
     height : 60px;
     background-color : #4169E1;
-<<<<<<< HEAD
-=======
+
     
     box-sizing : border-box;
 
@@ -46,8 +45,6 @@ function Header(){
     return(
         <main>
             <HeaderWrapper>
-<<<<<<< HEAD
-=======
                 <div>
                     <div>
                         <img src="/images/Logo.png" alt="Logo"></img>
@@ -55,7 +52,6 @@ function Header(){
                     </div>
                     <p>로그인</p>
                 </div>
->>>>>>> dd8dff46d5a84887c8dc480b02a0529f1e17df86
             </HeaderWrapper>
         </main>
     );

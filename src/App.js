@@ -10,6 +10,7 @@ function App() {
     <>
     <BrowserRouter>
       <Header></Header>
+      <Homepage></Homepage>
       <Footer></Footer>
     </BrowserRouter>
     </>
