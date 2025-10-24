@@ -30,6 +30,7 @@ const HeaderWrapper = styled.div`
         font-size : 28px;
         color : white;
         margin-left : 6px;
+        font-weight : bold;
     }
     
     & > div > p{
