@@ -4,7 +4,9 @@ function Login(){
     return(
         <main>
             <div className="container_outbox_01">
+            {/* <img className="Logo2" src="./images/Logo.png"></img> */}
                 <div className="div1">
+
                     <div className="login_outbox_01">
                         <div className="login_text_01">로그인</div>
                         <div className="login_box_01">
@@ -36,10 +38,11 @@ function Login(){
                     </div>
                 </div>
                     <div className="container_outbox_02">
-                    <div className="testbox2222">
-                        <img className="Logo" src="./images/naillo_logo.png"></img>
+                    <div className="slogan_logo_01">
+                        <img className="Logo" src="./images/Logo.png"></img>
+                        {/* http://localhost:3000/images/ naillo_logo.png */}
                     </div>
-                    <div className="text_test2222">“배움을 통해 내일로 나아가는 플랫폼”
+                    <div className="slogan_text_01">“배움을 통해 내일로 나아가는 플랫폼”
 Learn today, Lead Tomorrow.</div>
                     </div>
                 </div>
