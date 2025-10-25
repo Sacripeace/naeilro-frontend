@@ -4,6 +4,7 @@ import './css/reset.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './pages/Login';
+import Homepage from './pages/Homepage';
 
 
 function App() {
@@ -11,7 +12,6 @@ function App() {
     <>
     <BrowserRouter>
       <Header></Header>
-      <Login></Login>
       <Footer></Footer>
     </BrowserRouter>
     </>

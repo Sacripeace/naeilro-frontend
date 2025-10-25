@@ -6,9 +6,6 @@
     box-sizing: border-box;
     text-align: center;
 }
-
-
-
 .swiper {
   width: 100%;
   height: 100%;
@@ -32,4 +29,42 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.courses {
+  font-weight: bold;
+  font-size: 32px;
+  margin: 32px 0 16px 0;
+  text-align: start;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.course {
+  width: 200px;
+  height: 200px;
+  background-color: grey;
+}
+
+.search {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: start;
+  margin: 84px 0 2px 0;
+}
+
+.academy {
+  font-size: 18px;
+  text-align: end;
+}
+
+.region {
+  width: 580px;
+  height: 60px;
+  background-color: #F5F6FA;
+  border: #BFBFBF solid 1px;
+  text-align: start;
 }

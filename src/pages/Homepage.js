@@ -36,6 +36,20 @@ function Homepage() {
         <SwiperSlide>Slide 8</SwiperSlide>
         <SwiperSlide>Slide 9</SwiperSlide>
                 </Swiper>
+                <h1 className='courses'>강의 목록</h1>
+                <div className='container'>
+                    <div className='course'>course</div>
+                    <div className='course'>course</div>
+                    <div className='course'>course</div>
+                    <div className='course'>course</div>
+                    <div className='course'>course</div>
+                </div>
+                    <h1 className='search'>나의 학원 찾기</h1>
+                    <p className='academy'>학원 등록+</p>
+                    <div>
+                        <div className='region'>지역</div>
+                        <div className=''></div>
+                    </div>
             </div>
         </main>
     );
