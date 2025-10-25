@@ -1,0 +1,105 @@
+.container_outbox_01{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.div1{
+    width :900px;
+    height : 700px;
+    background-color: #87CEFA;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    
+}
+
+.login_text_01{
+    font-size: 48px;
+    margin: 40px 0px 0px 54px;
+    font-weight: bolder;
+}
+
+.login_outbox_01{
+    width: 455px;
+    height: 600px;
+    border-radius: 30px;
+    background-color: #ffffff27;
+    margin-left: 30px;
+}
+
+#userid, #password{
+    border-radius: 8px;
+}
+.snsImg{
+    margin: 0px 3px 0px 3px;
+}
+button, input{
+    width: 335px;
+    height: 32px;
+    outline: none;
+    border: none;
+    
+}
+
+.login_btn{
+    width: 335px;
+    height: 32px;
+    background-color: #4169E1;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bolder;
+    border-radius: 8px;
+    margin: 20px 0px 20px 0px;
+}
+
+.login_outbox_01{
+    display: flex;
+    flex-direction: column;
+}
+
+.signup_container_box{
+   display: flex;
+    justify-content: flex-end;
+}
+
+.signup_box_01{
+    display: flex;
+    align-items: flex-start;
+    text-align: right;
+    margin: 25px auto 25px auto;
+}
+
+.login_box_01{
+    margin: 20px auto 20px auto;
+}
+
+.title_13px{
+    margin: 15px 0px 15px 0px;
+    font-size: 13px;
+}
+
+.login_box_02{
+    margin: 20px auto 20px auto;
+    text-align: right;
+}
+
+.text_13px{
+    text-align: right;
+    /* display: flex; */
+    /* justify-content: flex-end; */
+    font-size: 14px;
+    color: #ae4700;
+}
+
+.title_14px{
+    font-size: 14px;
+}
+.sns_Login{
+    margin: 0px auto 0px auto;
+
+}

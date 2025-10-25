@@ -3,14 +3,15 @@ import './css/App.css';
 import './css/reset.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Homepage from './pages/Homepage';
+import Login from './pages/Login';
+
 
 function App() {
-  return (
+  return (   
     <>
     <BrowserRouter>
       <Header></Header>
-      <Homepage></Homepage>
+      <Login></Login>
       <Footer></Footer>
     </BrowserRouter>
     </>

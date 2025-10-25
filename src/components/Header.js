@@ -31,13 +31,13 @@ const HeaderWrapper = styled.div`
         font-size : 28px;
         color : white;
         margin-left : 6px;
+        font-weight : bold;
     }
     
     & > div > p{
         font-size : 12px;
         color : white;
     }
->>>>>>> dd8dff46d5a84887c8dc480b02a0529f1e17df86
 `
 
 

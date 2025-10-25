@@ -1,0 +1,134 @@
+/* 전역 리셋 */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Noto Sans KR", system-ui, sans-serif; }
+
+.container_outbox_01{
+  width: 100%;
+  min-height: 100vh;              /* 화면 꽉 차게 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;                  /* 모바일 여백 */
+}
+
+.div1{
+  width: 900px;
+  max-width: 100%;
+  background-color: #87CEFA;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;        /* 중앙정렬 */
+  padding: 24px;                  /* 바깥 패딩 */
+}
+
+/* 카드 */
+.login_outbox_01{
+  width: 455px;
+  max-width: 100%;
+  border-radius: 24px;
+  background-color: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  padding: 32px;                  /* 내부 패딩으로 간격 통일 */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;                      /* 섹션 간격 */
+}
+
+.login_text_01{
+  font-size: 42px;
+  line-height: 1.2;
+  font-weight: 800;
+  margin: 0;                      /* 개별 margin 제거 */
+}
+
+/* 폼 스택: 라벨-인풋-라벨-인풋-액션 */
+.login_form{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;                      /* 필드끼리 동일 간격 */
+}
+
+.field{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;                       /* 라벨-인풋 간격 */
+}
+
+.label{
+  font-size: 13px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="password"]{
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+  outline: none;
+}
+
+input::placeholder{ color:#b3b3b3; }
+
+/* 아이디찾기 + 확인버튼 영역 */
+.actions{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.actions .link{
+  margin-right: auto;             /* 왼쪽 정렬 */
+  font-size: 13px;
+  color: #ae4700;
+  text-decoration: none;
+}
+.login_btn{
+  flex: 0 0 140px;                /* 버튼 고정 폭 */
+  height: 44px;
+  background-color: #4169E1;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* SNS 로그인: 버튼화(높이/폭 동일) */
+.sns_Login{
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.sns_btn{
+  flex: 1 1 0;
+  height: 48px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.sns_btn.naver{ background:#2DB400; color:#fff; }
+.sns_btn.kakao{ background:#FEE500; color:#3C1E1E; }
+
+/* 하단 문구 */
+.signup_container_box{ display:flex; justify-content:center; }
+.signup_box_01{ margin: 8px 0 0; font-size:14px; }
+.signup_text_02{ color:#4169E1; text-decoration:none; font-weight:700; margin-left:4px; }
+
+/* 반응형: 좁은 화면에서 내부 여백 보강 */
+@media (max-width: 480px){
+  .login_outbox_01{ padding: 24px; }
+  .login_text_01{ font-size: 34px; }
+  .actions{ flex-direction: column; align-items: stretch; }
+  .login_btn{ width: 100%; }
+}

@@ -17,6 +17,7 @@ const FooterWrapper = styled.div`
     & > div > p:first-child{
         font-size : 28px;
         color : white;
+        font-weight : bold;
     }
     & > div > p:last-child{
         font-size : 10px;

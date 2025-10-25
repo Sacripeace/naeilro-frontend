@@ -1,0 +1,30 @@
+[
+    {
+        "teacher_name" : "이주빈",
+        "career" : "4년",
+        "subject_name" : "Java,AI",
+        "capacity" : "20명",
+        "image" : "/images/teacher.png"
+    },
+    {
+        "teacher_name" : "이주빈",
+        "career" : "4년",
+        "subject_name" : "Java,AI",
+        "capacity" : "20명",
+        "image" : "/images/teacher.png"
+    },
+    {
+        "teacher_name" : "이주빈",
+        "career" : "4년",
+        "subject_name" : "Java,AI",
+        "capacity" : "20명",
+        "image" : "/images/teacher.png"
+    },
+    {
+        "teacher_name" : "이주빈",
+        "career" : "4년",
+        "subject_name" : "Java,AI",
+        "capacity" : "20명",
+        "image" : "/images/teacher.png"
+    }
+]
