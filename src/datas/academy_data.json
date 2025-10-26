@@ -1,54 +1,240 @@
 [
     {
+        "uid" : 1,
         "academy_name" : "하이미디어 천호점",
         "subject_name" : "Java,AI",
         "address" : "서울 강동구 천호대로 1027 5층",
         "phone_number" : "02-479-0009",
         "description" : "수업에 따라오지 못하는 학생이여도 책임지고 끝까지 데리고 갑니다.",
-        "image" : "/images/academy.png"
+        "image" : [
+            "/images/academy.png",
+            "/images/academy.png",
+            "/images/academy.png"
+        ],
+        "teacher" : [
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            }
+        ]
     },
     {
+        "uid" : 2,
         "academy_name" : "하이미디어 천호점",
         "subject_name" : "Java,AI",
         "address" : "서울 강동구 천호대로 1027 5층",
         "phone_number" : "02-479-0009",
         "description" : "수업에 따라오지 못하는 학생이여도 책임지고 끝까지 데리고 갑니다.",
-        "image" : "/images/academy.png"
+        "image" : "/images/academy.png",
+        "teacher" : [
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            }
+        ]
     },
-    
     {
+        "uid" : 3,
         "academy_name" : "하이미디어 천호점",
         "subject_name" : "Java,AI",
         "address" : "서울 강동구 천호대로 1027 5층",
         "phone_number" : "02-479-0009",
         "description" : "수업에 따라오지 못하는 학생이여도 책임지고 끝까지 데리고 갑니다.",
-        "image" : "/images/academy.png"
+        "image" : "/images/academy.png",
+        "teacher" : [
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            }
+        ]
     },
-    
     {
+        "uid" : 4,
         "academy_name" : "하이미디어 천호점",
         "subject_name" : "Java,AI",
         "address" : "서울 강동구 천호대로 1027 5층",
         "phone_number" : "02-479-0009",
         "description" : "수업에 따라오지 못하는 학생이여도 책임지고 끝까지 데리고 갑니다.",
-        "image" : "/images/academy.png"
+        "image" : "/images/academy.png",
+        "teacher" : [
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            }
+        ]
     },
-    
     {
+        "uid" : 5,
         "academy_name" : "하이미디어 천호점",
         "subject_name" : "Java,AI",
         "address" : "서울 강동구 천호대로 1027 5층",
         "phone_number" : "02-479-0009",
         "description" : "수업에 따라오지 못하는 학생이여도 책임지고 끝까지 데리고 갑니다.",
-        "image" : "/images/academy.png"
+        "image" : "/images/academy.png",
+        "teacher" : [
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            }
+        ]
     },
-    
     {
+        "uid" : 6,
         "academy_name" : "하이미디어 천호점",
         "subject_name" : "Java,AI",
         "address" : "서울 강동구 천호대로 1027 5층",
         "phone_number" : "02-479-0009",
         "description" : "수업에 따라오지 못하는 학생이여도 책임지고 끝까지 데리고 갑니다.",
-        "image" : "/images/academy.png"
+        "image" : "/images/academy.png",
+        "teacher" : [
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            },
+            {
+               "teacher_name" : "이주빈",
+               "career" : "4년",
+               "teacher_subject" : "Java,AI",
+               "capacity" : "20명",
+               "image" : "/images/teacher.png" 
+            }
+        ]
     }
 ]
