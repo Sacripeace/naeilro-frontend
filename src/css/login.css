@@ -7,8 +7,8 @@
 }
 
 .div1{
-    width: 900px;
-    height: 700px;
+    width: 1366px;
+    height: 768px;
     background-color: #87CEFA;
     border-radius: 30px;
     display: flex;
@@ -18,24 +18,25 @@
 
 .login_outbox_01{
     width: 455px;
-    height: 600px;
+    height: 650px;
     border-radius: 30px;
     background-color: #ffffff27;
     display: flex;
     flex-direction: column;
     padding: 40px 60px;
     box-sizing: border-box;
+    margin: 0px 0px 0px 60px;
 }
 
 .login_text_01{
     font-size: 48px;
     font-weight: bolder;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .login_box_01,
 .login_box_02{
-    margin-bottom: 24px;
+    margin-bottom: 18px;
 }
 
 .title_13px{
@@ -43,9 +44,13 @@
     margin-bottom: 8px;
 }
 
-#userid, #password{
+#button{
+    height: 30px;
+}
+
+#userid, #password, #email, #number, #name{
     width: 335px;
-    height: 40px;
+    height: 30px;
     border-radius: 8px;
     outline: none;
     border: none;
@@ -60,9 +65,10 @@
     cursor: pointer;
 }
 
-.login_btn{
+
+.login_btn, .findmyid_btn {
     width: 335px;
-    height: 40px;
+    height: 30px;
     background-color: #4169E1;
     color: #fff;
     font-size: 14px;
@@ -74,7 +80,7 @@
     margin-top: 8px;
 }
 
-.login_btn:hover{
+.login_btn:hover, .findmyid_btn:hover{
     background-color: #3154b8;
 }
 
@@ -123,22 +129,25 @@
     
 }
 
-.testbox2222{
-    width: 100%;
+.slogan_logo_01{
+    display: flex;
+    justify-content: center;
+    width: 485px;
     height: 400px;
-    background-color: #a80b0b;
+    padding: 100px;
+    /* background-color: #a80b0b; */
 
     margin: 0px auto 0px auto;
-        box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-.text_test2222{
+.slogan_text_01{
     width: 100hv;
-    height: 200px;
+    height: 50px;
     font-size: 28px;
     text-align: center;
     font-weight: bolder;
-    background-color: gray;
+    /* background-color: gray; */
     padding-top: 20px;
     box-sizing: border-box;
 }
@@ -147,6 +156,82 @@
     width: 200px;
     background-repeat: no-repeat;
     background-size: auto ;
+}
+
+.Logo2{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    
+
+}
 
 
+/* 아래 코드는 FindMyId.js코드 입니다. */
+
+.repassword{
+    color: #9b9b9b;
+    cursor: pointer;
+}
+.repassword:hover{
+    color: black;
+}
+
+.findmyid_title_02{
+    color: #9b9b9b;
+    cursor: pointer;
+}
+.findmyid_title_02:hover{
+    color: black;
+
+}
+
+.findmyid_container_text_01{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 20px;
+}
+
+.findmyid_title_01{
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+
+.repassword_01{
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+
+
+.findmyidbox_container{
+    margin-top: 140px;
+}
+
+.you_id{
+    font-size: small;
+    margin-bottom: 10px;
+}
+
+.findmyidbox{
+    width: 335px;
+    height: 60px;
+    background-color: white;
+    border-radius: 8px;
+    text-align: center;
+    align-content: center;
+    font-size: 20px;
+}
+
+/*아래는 Re Password.js에 적용되는 CSS입니다. */
+
+.warning_text{
+    font-size: small;
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    
 }
