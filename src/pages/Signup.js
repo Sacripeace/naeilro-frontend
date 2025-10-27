@@ -48,8 +48,8 @@ function Signup(){
 
                     <div className="container_outbox_02">
                         <div className="slogan_logo_01">
-                            <img className="Logo" src="./images/naillo_logo.png">
-                            </img>
+                            <img className="Logo" src="./images/naillo_logo.png" />
+                            
                         </div>
                     
                         <div className="slogan_text_01">“배움을 통해 내일로 나아가는 플랫폼”</div>

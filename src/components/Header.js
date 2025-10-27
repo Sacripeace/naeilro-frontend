@@ -24,25 +24,37 @@ const HeaderWrapper = styled.div`
         align-items : center;
     }
 
-    & > div > div > img{
-        width : 38px;
-        height : 44px;
+    & > div > div > div > a > img{
+        // width : 38px;
+        height : 50px;
         cursor: pointer;
+        background-repeat: no-repeat;
+        background-size: auto ;
     }
 
-    & > div > div > p{
+    // 홈페이지 왼쪽 로고옆 "내일로" TEXT
+    & > div > div > a > p{
         font-size : 28px;
         color : white;
         margin-left : 6px;
         font-weight : bold;
         cursor: pointer;
+        text-decoration: none;
     }
     
-    & > div > p{
-        font-size : 12px;
+    & > div > a > p{
+        font-size : 1px;
         color : white;
         cursor: pointer;
+        text-decoration: none;
+        color: white;
     }
+
+    & a{
+        color : white;
+        text-decoration: none;
+    }
+
 `
 
 
@@ -52,10 +64,18 @@ function Header(){
             <HeaderWrapper>
                 <div>
                     <div>
-                        <img src="/images/naillo_logo.png" alt="Logo"></img>
-                        <p>내일로</p>
+                        <div>
+                        <Link to={"/homepage"}>
+                            <img src="/images/naillo_logo.png" alt="Logo"></img>
+                            </Link>
+                        </div>
+                        <Link to={"/homepage"}>
+                        <p>
+                            내일로
+                        </p>
+                        </Link>
                     </div>
-                    <Link to="/login" className="header_login_text">로그인</Link>
+                    <Link to="/login">로그인</Link>
                 </div>
             </HeaderWrapper>
         </main>
