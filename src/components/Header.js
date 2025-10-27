@@ -55,7 +55,7 @@ function Header(){
                         <img src="/images/naillo_logo.png" alt="Logo"></img>
                         <p>내일로</p>
                     </div>
-                    <Link to="/login" className="text_13px">로그인</Link>
+                    <Link to="/login" className="header_login_text">로그인</Link>
                 </div>
             </HeaderWrapper>
         </main>
