@@ -25,6 +25,7 @@ const HeaderWrapper = styled.div`
     & > div > div > img{
         width : 38px;
         height : 44px;
+        cursor: pointer;
     }
 
     & > div > div > p{
@@ -32,11 +33,13 @@ const HeaderWrapper = styled.div`
         color : white;
         margin-left : 6px;
         font-weight : bold;
+        cursor: pointer;
     }
     
     & > div > p{
         font-size : 12px;
         color : white;
+        cursor: pointer;
     }
 `
 

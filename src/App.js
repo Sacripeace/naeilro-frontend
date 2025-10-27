@@ -1,10 +1,13 @@
-import { BrowserRouter} from 'react-router-dom';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import './css/App.css';
 import './css/reset.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Login from './pages/Login';
+
 import Homepage from './pages/Homepage';
+import Header from './components/Header.js';
+import Footer from './components/Footer.js';
+import Academy from './pages/Academy.js';
+import Login from './pages/Login.js';
+import TeacherRegister from './pages/TeacherRegister.js';
 
 
 function App() {
@@ -12,6 +15,12 @@ function App() {
     <>
     <BrowserRouter>
       <Header></Header>
+      <Routes>
+        <Route path="/academy/:uid" element={<Academy />} />
+        <Route path="/teacher-register" element={<TeacherRegister />} />
+        <Route path="/login" element={<Login />} />
+        <Route path='/' element={<Homepage />} />
+      </Routes>
       <Footer></Footer>
     </BrowserRouter>
     </>
