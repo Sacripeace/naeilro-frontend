@@ -42,7 +42,7 @@
   font-size: 32px;
   font-weight: bold;
   text-align: start;
-  margin: 84px 0 2px 0;
+  margin: 32px 0 2px 0;
 }
 
 .academy {
@@ -95,6 +95,7 @@
 .container-courses {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .courses {
@@ -102,4 +103,5 @@
   height: 280px;
   border: #444 solid 1px;
   border-radius: 15px;
+  overflow: hidden;
 }

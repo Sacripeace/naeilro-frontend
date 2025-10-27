@@ -8,6 +8,7 @@ import 'swiper/css/navigation';
 import "../css/Homepage.css"
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { CiLocationOn } from "react-icons/ci";
+import data from '../datas/academy_data.json'
 
 function Homepage() {
 
@@ -59,9 +60,36 @@ function Homepage() {
                             </div>
                         </div>
                         <div className='container-courses'>
-                                <div className='courses'></div>
-                                <div className='courses'></div>
-                                <div className='courses'></div>
+                                <div className='courses'>
+                                    <img 
+                                    src={data[0].image}
+                                    alt='there is no image'/>
+                                </div>
+                                <div className='courses'>
+                                    <img 
+                                    src={data[1].image}
+                                    alt='there is no image'/>
+                                </div>
+                                <div className='courses'>
+                                    <img 
+                                    src={data[2].image}
+                                    alt='there is no image'/>
+                                </div>
+                                <div className='courses'>
+                                    <img 
+                                    src={data[3].image}
+                                    alt='there is no image'/>
+                                </div>
+                                <div className='courses'>
+                                    <img 
+                                    src={data[4].image}
+                                    alt='there is no image'/>
+                                </div>
+                                <div className='courses'>
+                                    <img 
+                                    src={data[5].image}
+                                    alt='there is no image'/>
+                                </div>
                             </div>
                     </div>
             </div>
