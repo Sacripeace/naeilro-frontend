@@ -7,7 +7,7 @@
 }
 
 .div1{
-    width: 1366px;
+    width: 1000px;
     height: 768px;
     background-color: #87CEFA;
     border-radius: 30px;
@@ -63,10 +63,14 @@
     color: #ae4700;
     margin-bottom: 12px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 
-.login_btn, .findmyid_btn {
+
+
+.login_btn, .findmyid_btn, #Link{
+    display: block;
     width: 335px;
     height: 30px;
     background-color: #4169E1;
@@ -78,6 +82,9 @@
     outline: none;
     cursor: pointer;
     margin-top: 8px;
+    text-align: center;
+    align-content: center;
+    text-decoration: none;
 }
 
 .login_btn:hover, .findmyid_btn:hover{
@@ -172,6 +179,8 @@
 .repassword{
     color: #9b9b9b;
     cursor: pointer;
+    text-decoration: none;
+
 }
 .repassword:hover{
     color: black;
@@ -180,6 +189,7 @@
 .findmyid_title_02{
     color: #9b9b9b;
     cursor: pointer;
+    text-decoration: none;
 }
 .findmyid_title_02:hover{
     color: black;

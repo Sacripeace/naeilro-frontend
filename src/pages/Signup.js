@@ -1,17 +1,16 @@
-import "../css/login.css"
+import "../css/login_Style.css";
 
 function Signup(){
     return(
         <main>
 
             <div className="container_outbox_01">
-            {/* <img className="Logo2" src="./images/Logo.png"></img> */}
                 <div className="div1">
 
                     <div className="login_outbox_01">
                         <div className="login_text_01">회원가입</div>
                         <div className="login_box_01">
-                            <div className="title_13px">아이디</div>
+                            <div className="title_13px">관리자 아이디</div>
                             <input type="text" id="userid" name="userid" placeholder="아이디를 입력하세요."/>
                         </div>
 
@@ -27,7 +26,7 @@ function Signup(){
 
 
                         <div className="login_box_01">
-                            <div className="title_13px">성명</div>
+                            <div className="title_13px">사업자명</div>
                             <input type="text" id="name" name="name" placeholder="성함을 입력하세요."/>
                         </div>
 
@@ -49,9 +48,8 @@ function Signup(){
 
                     <div className="container_outbox_02">
                         <div className="slogan_logo_01">
-                            <img className="Logo" src="./images/Logo.png">
+                            <img className="Logo" src="./images/naillo_logo.png">
                             </img>
-                            {/* http://localhost:3000/images/ naillo_logo.png */}
                         </div>
                     
                         <div className="slogan_text_01">“배움을 통해 내일로 나아가는 플랫폼”</div>

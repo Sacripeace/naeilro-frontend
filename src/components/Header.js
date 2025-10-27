@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 
 const HeaderWrapper = styled.div`
     display : flex;
@@ -50,10 +52,10 @@ function Header(){
             <HeaderWrapper>
                 <div>
                     <div>
-                        <img src="/images/Logo.png" alt="Logo"></img>
+                        <img src="/images/naillo_logo.png" alt="Logo"></img>
                         <p>내일로</p>
                     </div>
-                    <p>로그인</p>
+                    <Link to="/login" className="text_13px">로그인</Link>
                 </div>
             </HeaderWrapper>
         </main>
