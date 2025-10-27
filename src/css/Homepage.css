@@ -38,17 +38,6 @@
   text-align: start;
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.course {
-  width: 200px;
-  height: 200px;
-  background-color: grey;
-}
-
 .search {
   font-size: 32px;
   font-weight: bold;
@@ -61,10 +50,56 @@
   text-align: end;
 }
 
+.container2 {
+  display: flex;
+}
+
 .region {
-  width: 580px;
-  height: 60px;
+  width: 557px;
+  height: 40px;
   background-color: #F5F6FA;
   border: #BFBFBF solid 1px;
   text-align: start;
+  font-weight: 16px;
+  padding: 20px 0px 0px 23px;
+}
+
+.subject {
+  width: 557px;
+  height: 40px;
+  background-color: #F5F6FA;
+  border: #BFBFBF solid 1px;
+  text-align: start;
+  font-weight: 16px;
+  padding: 20px 0px 0px 23px;
+}
+
+.func {
+  width: 580px;
+  height: 126px;
+}
+
+.reg {
+  display: flex;
+}
+
+.region-01 {
+  width: 290px;
+  height: 43px;
+  background-color: #F5F6FA;
+  border: #BFBFBF solid 1px;
+  text-align: center;
+  padding-top: 23px;
+}
+
+.container-courses {
+  display: flex;
+  justify-content: space-between;
+}
+
+.courses {
+  width: 373px;
+  height: 280px;
+  border: #444 solid 1px;
+  border-radius: 15px;
 }

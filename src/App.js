@@ -19,7 +19,7 @@ function App() {
         <Route path="/academy/:uid" element={<Academy />} />
         <Route path="/teacher-register" element={<TeacherRegister />} />
         <Route path="/login" element={<Login />} />
-        <Route path='/' element={<Homepage />} />
+        <Route path='/homepage' element={<Homepage />} />
       </Routes>
       <Footer></Footer>
     </BrowserRouter>

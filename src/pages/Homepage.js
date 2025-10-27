@@ -7,6 +7,8 @@ import 'swiper/css/navigation';
 
 import "../css/Homepage.css"
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { CiLocationOn } from "react-icons/ci";
+
 function Homepage() {
 
     return(
@@ -36,19 +38,31 @@ function Homepage() {
         <SwiperSlide>Slide 8</SwiperSlide>
         <SwiperSlide>Slide 9</SwiperSlide>
                 </Swiper>
-                <h1 className='courses'>강의 목록</h1>
-                <div className='container'>
-                    <div className='course'>course</div>
-                    <div className='course'>course</div>
-                    <div className='course'>course</div>
-                    <div className='course'>course</div>
-                    <div className='course'>course</div>
-                </div>
                     <h1 className='search'>나의 학원 찾기</h1>
                     <p className='academy'>학원 등록+</p>
                     <div>
-                        <div className='region'>지역</div>
-                        <div className=''></div>
+                        <div className='container2'>
+                            <div className='func'>
+                                <div className='region'><CiLocationOn />지역</div>
+                                <div className='reg'>
+                                    <div className='region-01'>전호</div>
+                                    <div className='region-01'>강동</div>
+                                </div>
+                            </div>
+                            <div className='func'>
+                                <div className='subject'>과목</div>
+                                    <div className='reg'>
+                                        <div className='region-01'>JAVA</div>
+                                        <div className=' region-01'>AI</div>
+                                        <div className=' region-01'>Game Developing</div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div className='container-courses'>
+                                <div className='courses'></div>
+                                <div className='courses'></div>
+                                <div className='courses'></div>
+                            </div>
                     </div>
             </div>
         </main>
