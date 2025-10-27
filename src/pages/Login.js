@@ -40,7 +40,7 @@ function Login(){
 
                     <div className="container_outbox_02">
                         <div className="slogan_logo_01">
-                            <img className="Logo" src="./images/Logo.png">
+                            <img className="Logo" src="./images/Logo.png" alt="로고">
                             </img>
                             {/* http://localhost:3000/images/ naillo_logo.png */}
                         </div>

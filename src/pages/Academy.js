@@ -1,23 +1,47 @@
 import data from '../datas/academy_data.json';
 import { useParams } from 'react-router-dom';
+import '../css/academy.css';
 
 function Academy(){
     const { uid } = useParams();
     const academy = data.find((item) => item.uid === Number(uid));
 
     return(
-        <main>
-            {academy ? (
-            <> 
-                {/* <p>{academy.academy_name}</p>
-                <p>{academy.subject_name}</p>
-                <p>{academy.phone_number}</p>
-                <p>{academy.address}</p>
-                <p>{academy.description}</p> */}
-             </>
-    ) : (
-      <p>학원 정보를 불러올 수 없습니다.</p>
-    )}
+        <main className='academymain'>
+            <div className='academycontainer'>
+            <div className='academytitle'>
+                <p>학원 정보</p>
+                <p>학원 정보 수정하기</p>
+            </div>
+            <div className='academyline'></div>
+            <div className='academyinformation'>
+                <img src={academy.image} alt='사진'></img>
+                <div className='informationdetail'>
+                    <p>{academy.academy_name}</p>
+                    <div>
+                        <div>
+                            <p>과목 : {academy.subject_name}</p>
+                            <p>전화번호 : {academy.phone_number}</p>
+                            <p>주소 : {academy.address}</p>
+                        </div>
+                        <div>
+                            <p>소개 :</p>
+                            <p>{academy.description}</p>
+                        </div>
+                    </div>
+                    <div className='academymap'>
+                        <iframe
+                            title="academy-map"
+                            src={`https://www.google.com/maps?q=${encodeURIComponent(academy.address)}&output=embed`}
+                            style={{ width: '100%', height: '100%', border: 0 }}
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div className='academysubline'></div>
+            </div>
         </main>
     );
 }

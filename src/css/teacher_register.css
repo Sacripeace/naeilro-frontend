@@ -1,47 +1,47 @@
-.body{
+.teacherbody{
     width : 100%;
 }
 
-.container{
+.teachercontainer{
     width: 1160px;
     margin : 0 auto;
 }
 
-.title{
+.teachertitle{
     display: flex;
     justify-content: space-between;
     width: 1160px;
     margin-top: 48px;   
 }
 
-.title > p:first-child{
+.teachertitle > p:first-child{
     font-size: 24px;
     font-weight: bold;
 }
-.title > p:last-child{
+.teachertitle > p:last-child{
     font-size: 12px;
     margin-top: 16px;
     cursor: pointer;
 }
-.line{
+.teacherline{
     width : 1160px;
     height : 0px;
     border : 1px solid black;
     margin: 16px 0px 34px 0px;
 }
-.content{
+.teachercontent{
     display: flex;
     justify-content: space-between;
 }
-.box{
+.teacherbox{
     margin-bottom: 52px;
 }
-.box > div > p{
+.teacherbox > div > p{
     font-size: 18px;
     font-weight: bold;
 }
 
-.box > div > input{
+.teacherbox > div > input{
     width: 345px;
     height: 48px;
     border-radius: 8px;
@@ -49,7 +49,7 @@
     padding: 16px;
     box-sizing: border-box;
 }
-.name{
+.teachername{
     display: flex;
     gap: 43px;
     align-items: center;
@@ -57,11 +57,11 @@
     box-sizing: border-box;
 }
 
-.checkcontainer{
+.teachercheckcontainer{
     display: flex;
 }
 
-.checkcontainer > button{
+.teachercheckcontainer > button{
         width: 115px;
         height: 48px;
         background-color: white;
@@ -70,15 +70,15 @@
         cursor: pointer;
         
 }
-.checkcontainer > button:last-child{
+.teachercheckcontainer > button:last-child{
     border-right: 1px solid black;
 }
 
-.recruit{
+.teacherrecruit{
     margin-left: -16px;
     margin-right: -22px;
 }
-.imageupload{
+.teacherimageupload{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,27 +88,27 @@
     border-radius: 21px;
     cursor: pointer;
 }
-.imageupload > p{
+.teacherimageupload > p{
     font-weight: bold;
     font-size: 18px;
 }
 
-.subline{
+.teachersubline{
     width : 1160px;
     height : 0px;
     border : 1px solid #E5ECFF;
     margin: 16px 0px 34px 0px;
 }
 
-.okcontainer{
+.teacherokcontainer{
     display: flex;
     justify-content: right;
     width : 1160px;
     margin: 0 auto;
-    margin: 77px 0px 50px 0px;
+    margin: 36px 0px 50px 0px;
 }
 
-.okcontainer > button{
+.teacherokcontainer > button{
     width: 93px;
     height: 41px;
     background-color: #4169E1;

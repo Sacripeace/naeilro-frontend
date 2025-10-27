@@ -1,0 +1,128 @@
+.academybody{
+    width : 100%;
+}
+
+.academycontainer{
+    width: 1160px;
+    margin : 0 auto;
+}
+
+.academytitle{
+    display: flex;
+    justify-content: space-between;
+    width: 1160px;
+    margin-top: 48px;   
+}
+
+.academytitle > p:first-child{
+    font-size: 24px;
+    font-weight: bold;
+}
+.academytitle > p:last-child{
+    font-size: 12px;
+    margin-top: 16px;
+    cursor: pointer;
+}
+.academyline{
+    width : 1160px;
+    height : 0px;
+    border : 1px solid black;
+    margin: 16px 0px 34px 0px;
+}
+.academypic{
+    font-size : 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+
+}
+.academyimg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width : 462px;
+    height: 264px;
+    background-color: #F5F6FA;
+    border-radius: 28px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+}
+.academysubline{
+    width : 1160px;
+    height : 0px;
+    border : 1px solid #E5ECFF;
+    margin: 48px 0px 29px 0px;
+}
+
+.academycontent > div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.academycontent > div > div{
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    margin-bottom: 62px;
+}
+
+.academycontent > div > div > p{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.academycontent > div > div > input{
+    width: 345px;
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid black;
+    padding-left: 12px;
+    box-sizing: border-box;
+}
+
+.academydescription{
+    width: 1160px;
+    display: flex;
+    align-items: center;
+    margin-left: 4px;
+}
+
+.academydescription > p{
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 48px;
+    white-space: nowrap;
+}
+
+
+.academydescription > input{
+    width: 100%;
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid #000000;
+    padding-left: 12px;
+    box-sizing: border-box;
+}
+
+.academyokcontainer{
+    display: flex;
+    justify-content: right;
+    width : 1160px;
+    margin: 0 auto;
+    margin: 36px 0px 50px 0px;
+}
+
+.academyokcontainer > button{
+    width: 93px;
+    height: 41px;
+    background-color: #4169E1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.addressmargin{
+    margin-right: 10px;
+}

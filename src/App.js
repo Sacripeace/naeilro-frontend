@@ -8,6 +8,7 @@ import Footer from './components/Footer.js';
 import Academy from './pages/Academy.js';
 import Login from './pages/Login.js';
 import TeacherRegister from './pages/TeacherRegister.js';
+import AcademyRegister from './pages/AcademyRegister.js';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/teacher-register" element={<TeacherRegister />} />
         <Route path="/login" element={<Login />} />
         <Route path='/homepage' element={<Homepage />} />
+        <Route path="/academy-register" element={<AcademyRegister />} />
       </Routes>
       <Footer></Footer>
     </BrowserRouter>
