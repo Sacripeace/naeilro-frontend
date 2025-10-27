@@ -40,3 +40,96 @@
   border-radius: 12px;
   overflow: hidden;
 }
+
+.hometeachertitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1160px;
+    margin-top: 36px;
+    margin-bottom: 36px;
+}
+.hometeachertitle > p:first-child{
+    font-size: 24px;
+    font-weight: bold;
+}
+.hometeachertitle > p:nth-child(2){
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+.teacher-container{
+    display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 24px;
+     justify-items: center;
+    margin-top: 32px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 360px;
+    height: 460px;
+    background-color: #E5ECFF;
+    border-radius: 18px;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.card > img{
+    width: 216px;
+    height: 265px;
+    border-radius: 12px;
+    margin-bottom: 9px;
+}
+
+.teacherposition{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    width: 360px;
+    height: 96px;
+    background-color: #4169E1;
+    color: white;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    box-sizing: border-box;
+}
+
+.teacherexplain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 360px;
+    height: 100px;
+}
+
+.teacherexplain > a{
+    text-decoration: none;
+    color: inherit;
+    font-weight: 400px;
+    font-size: 18px;
+}
+
+.viewmore{
+    display: flex;
+    justify-content: center;
+    width: 1160px;
+    margin: 0 auto;
+    margin-top: 42px;
+    margin-bottom: 60px;
+}
+
+.viewmore > button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 40px;
+    background-color: #E5ECFF;
+    border: none;
+    border-radius: 8px;
+}

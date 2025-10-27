@@ -1,10 +1,12 @@
 import data from '../datas/academy_data.json';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+
 import '../css/academy.css';
 
 function Academy(){
     const { uid } = useParams();
     const academy = data.find((item) => item.uid === Number(uid));
+    
 
     return(
         <main className='academymain'>
@@ -41,7 +43,33 @@ function Academy(){
                 </div>
             </div>
             <div className='academysubline'></div>
+
+
+            <div className='hometeachertitle'>
+                <p>모집 중인 강좌</p>
+                <p>강좌 추가 하기</p>
             </div>
+            <div className='teacher-container'>
+                {academy.teacher.map((t, index) => (
+                    <div key={index} className='card'>
+                        <img src={t.image} alt={t.teacher_name} />
+                        <div className='teacherposition'>
+                            <p>이름 : {t.teacher_name}</p>
+                            <p>경력 : {t.career}</p>
+                            <p>과목 : {t.teacher_subject}</p>
+                        </div>
+                        <div className='teacherexplain'>
+                            <Link to={t.subject_explain}>해당 과정이 궁금하시다면 Click! </Link>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            
+            </div>
+            <div className='viewmore'>
+                <button><img src='/images/down.png' alt='down'></img>더보기</button>
+            </div>
+
         </main>
     );
 }

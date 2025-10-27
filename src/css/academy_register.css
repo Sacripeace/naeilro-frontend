@@ -92,6 +92,7 @@
     font-size: 18px;
     font-weight: bold;
     margin-right: 48px;
+    margin-left: -0px;
     white-space: nowrap;
 }
 
@@ -126,3 +127,4 @@
 .addressmargin{
     margin-right: 10px;
 }
+

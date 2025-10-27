@@ -6,6 +6,7 @@ function AcademyRegister(){
             <div className='academycontainer'>
                 <div className="academytitle">
                     <p>학원 정보 등록</p>
+                    <p></p>
                 </div>
                 <div className='academyline'></div>
 
@@ -45,9 +46,8 @@ function AcademyRegister(){
                 <div className="academyokcontainer">
                     <button>완료</button>
                 </div>
-
-
             </div>
+            
 
 
         </main>

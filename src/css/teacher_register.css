@@ -10,19 +10,28 @@
 .teachertitle{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 1160px;
     margin-top: 48px;   
+}
+.teachertitle > button{
+    width: 60px;
+    height: 36px;
+    background-color: #4169E1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .teachertitle > p:first-child{
     font-size: 24px;
     font-weight: bold;
 }
-.teachertitle > p:last-child{
-    font-size: 12px;
-    margin-top: 16px;
-    cursor: pointer;
+.teachertitle > p:nth-child(2){
+    margin-top: 12px;
 }
+
 .teacherline{
     width : 1160px;
     height : 0px;
@@ -83,7 +92,7 @@
     justify-content: center;
     align-items: center;
     width : 468px;
-    height: 385px;
+    height: 450px;
     background-color: #F5F6FA;
     border-radius: 21px;
     cursor: pointer;
