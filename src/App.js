@@ -1,14 +1,13 @@
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import './css/App.css';
 import './css/reset.css';
-
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Academy from './pages/Academy';
+import TeacherRegister from './pages/TeacherRegister';
+import Login from './pages/Login';
 import Homepage from './pages/Homepage';
-import Header from './components/Header.js';
-import Footer from './components/Footer.js';
-import Academy from './pages/Academy.js';
-import Login from './pages/Login.js';
-import TeacherRegister from './pages/TeacherRegister.js';
-import AcademyRegister from './pages/AcademyRegister.js';
+import AcademyRegister from './pages/AcademyRegister';
 
 
 function App() {
