@@ -103,6 +103,9 @@ function Homepage() {
                                 </Link>
                             ))}
                         </div>
+                        <div className='viewmore'>
+                            <button><img src='/images/down.png' alt='down'></img>더보기</button>
+                        </div>
                     </div>
             </div>
         </main>
