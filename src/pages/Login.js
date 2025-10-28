@@ -34,7 +34,7 @@ function Login() {
             </div>
 
             <div className="login_box_02">
-              <Link to="/findmyid" className="text_13px">아이디찾기</Link>
+              <Link to="/findmyid" className="find_my_id_text">아이디찾기</Link>
               <button type="submit" className="login_btn">
                 확인
               </button>

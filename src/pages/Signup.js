@@ -16,7 +16,7 @@ function Signup(){
 
                         <div className="login_box_01">
                             <div className="title_13px">암호</div>
-                            <input type="password" id="password" name="password" placeholder="비밀번호를를 입력하세요."/>
+                            <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요."/>
                         </div>
 
                         <div className="login_box_01">

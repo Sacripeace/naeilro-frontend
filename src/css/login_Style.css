@@ -36,7 +36,16 @@
 
 .login_box_01,
 .login_box_02{
-    margin-bottom: 18px;
+    margin-bottom: 20px;
+}
+
+.find_my_id_text{
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    color: #ae4700;
+    font-weight: bold;
+
 }
 
 .title_13px{
