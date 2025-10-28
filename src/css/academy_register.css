@@ -18,10 +18,12 @@
     font-size: 24px;
     font-weight: bold;
 }
-.academytitle > p:last-child{
+.academytitle > a:last-child{
     font-size: 12px;
     margin-top: 16px;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 .academyline{
     width : 1160px;

@@ -19,21 +19,21 @@ const HeaderWrapper = styled.div`
         width : 1160px;
     }
 
-    & > div > div{
+    & > div > a{
         display : flex;
         align-items : center;
+        text-decoration : none;
     }
 
-    & > div > div > div > a > img{
-        // width : 38px;
-        height : 50px;
+    & > div > div > img{
+        width : 38px;
+        height : 44px;
         cursor: pointer;
         background-repeat: no-repeat;
         background-size: auto ;
     }
 
-    // 홈페이지 왼쪽 로고옆 "내일로" TEXT
-    & > div > div > a > p{
+    & > div > div > p{
         font-size : 28px;
         color : white;
         margin-left : 6px;
@@ -42,8 +42,8 @@ const HeaderWrapper = styled.div`
         text-decoration: none;
     }
     
-    & > div > a > p{
-        font-size : 1px;
+    & > div > p{
+        font-size : 12px;
         color : white;
         cursor: pointer;
         text-decoration: none;
@@ -75,7 +75,7 @@ function Header(){
                         </p>
                         </Link>
                     </div>
-                    <Link to="/login">로그인</Link>
+                    <Link to="/login" className="header_login_text">로그인</Link>
                 </div>
             </HeaderWrapper>
         </main>

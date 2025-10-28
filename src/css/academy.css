@@ -53,9 +53,11 @@
     font-size: 24px;
     font-weight: bold;
 }
-.hometeachertitle > p:nth-child(2){
+.hometeachertitle > a{
     margin-top: 12px;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 
 .teacher-container{
@@ -132,4 +134,5 @@
     background-color: #E5ECFF;
     border: none;
     border-radius: 8px;
+    cursor: pointer;
 }

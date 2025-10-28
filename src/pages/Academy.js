@@ -13,7 +13,7 @@ function Academy(){
             <div className='academycontainer'>
             <div className='academytitle'>
                 <p>학원 정보</p>
-                <p>학원 정보 수정하기</p>
+                <a href='/academy-register'>학원 정보 수정하기</a>
             </div>
             <div className='academyline'></div>
             <div className='academyinformation'>
@@ -47,7 +47,7 @@ function Academy(){
 
             <div className='hometeachertitle'>
                 <p>모집 중인 강좌</p>
-                <p>강좌 추가 하기</p>
+                <a href='/teacher-register'>강좌 추가 하기</a>
             </div>
             <div className='teacher-container'>
                 {academy.teacher.map((t, index) => (

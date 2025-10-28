@@ -10,6 +10,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { CiLocationOn } from "react-icons/ci";
 import data from '../datas/academy_data.json'
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Homepage() {
     const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +52,10 @@ function Homepage() {
                 </Swiper>
                 <div className='title-box'>
                     <h1 className='search'>나의 학원 찾기</h1>
+                    <Link to={"/academy-register"}>
                     <p className='academy'>학원 등록+</p>
+                    </Link>
+                    
                 </div>
                     <div>
                         <div className='container2'>
