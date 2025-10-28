@@ -1,17 +1,16 @@
-@import url('https://your-font-url.com/bitcount-font.css');
+/* Google Fonts에서 Noto Sans KR적용 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap');
 
-html, body, header, footer {
-  font-family: "Bitcount Prop Single", system-ui;
-  font-optical-sizing: auto;
-  font-weight: 369;
+
+/* 전역 폰트 적용 */
+html {
+  font-family: "Noto Sans KR", sans-serif;
+  /* font-optical-sizing: auto; */
+  font-weight: 700;
   font-style: normal;
-  font-variation-settings:
-    "slnt" 0,
-    "CRSV" 0.5,
-    "ELSH" 0,
-    "ELXP" 0;
 }
 
+/* 기본 리셋 */
 * {
   margin: 0;
   padding: 0;
