@@ -87,14 +87,14 @@
     width: 1160px;
     display: flex;
     align-items: center;
-    margin-left: 4px;
+    margin: 0 auto;
 }
 
 .academydescription > p{
     font-size: 18px;
     font-weight: bold;
-    margin-right: 48px;
-    margin-left: -0px;
+    margin-right: 46px;
+    margin-left: 6px;
     white-space: nowrap;
 }
 

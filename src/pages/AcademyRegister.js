@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../css/academy_register.css';
 
 function AcademyRegister(){
@@ -6,7 +7,7 @@ function AcademyRegister(){
             <div className='academycontainer'>
                 <div className="academytitle">
                     <p>학원 정보 등록</p>
-                    <p></p>
+                    <Link to="/teacher-register">강사 정보 등록</Link>
                 </div>
                 <div className='academyline'></div>
 

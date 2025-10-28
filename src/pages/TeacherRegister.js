@@ -1,6 +1,10 @@
+import { useState } from "react";
 import "../css/teacher_register.css";
 
 function TeacherRegister(){
+
+    const [selected, setSelected] = useState(null);
+
     return(
         <main className="teacherbody">
             <div className="teachercontainer">
@@ -33,9 +37,15 @@ function TeacherRegister(){
                             <div className="teachername">
                                 <p>과목</p>
                                 <div className="teachercheckcontainer">
-                                    <button>게임 개발</button>
-                                    <button>AI 개발</button>
-                                    <button>Java</button>
+                                    {["게임 개발", "AI 개발", "Java"].map((subject, index) => (
+                                        <button
+                                        key={index}
+                                        className={selected === index ? "active" : ""}
+                                        onClick={() => setSelected(prev => (prev === index ? null : index))}
+                                        >
+                                        {subject}
+                                        </button>
+                                    ))}
                                 </div>
                             </div>
                         </div>

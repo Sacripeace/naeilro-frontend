@@ -11,6 +11,7 @@ import AcademyRegister from './pages/AcademyRegister';
 import FindMyId from './pages/FindMyId';
 import Repassword from './pages/RePassword';
 import Signup from './pages/Signup';
+import ScrollToTop from './components/ScrollToTop';
 
 
 
@@ -20,6 +21,7 @@ function App() {
   return (   
     <>
     <BrowserRouter>
+      <ScrollToTop></ScrollToTop>
       <Header></Header>
       <Routes>
         <Route path="/academy/:uid" element={<Academy />} />
