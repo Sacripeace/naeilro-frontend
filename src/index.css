@@ -16,3 +16,10 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+
+/* 해더 풋터 화면 100%로 맞추는 소스 */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

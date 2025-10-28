@@ -14,25 +14,22 @@ import Signup from './pages/Signup';
 import ScrollToTop from './components/ScrollToTop';
 
 
-
-
-
 function App() {
   return (   
     <>
     <BrowserRouter>
       <ScrollToTop></ScrollToTop>
       <Header></Header>
-      <Routes>
-        <Route path="/academy/:uid" element={<Academy />} />
-        <Route path="/teacher-register" element={<TeacherRegister />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/findmyid" element={<FindMyId />} />
-        <Route path="/repassword" element={<Repassword />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path='/' element={<Homepage />} />
-        <Route path="/academy-register" element={<AcademyRegister />} />
-      </Routes>
+        <Routes>
+          <Route path="/academy/:uid" element={<Academy />} />
+          <Route path="/teacher-register" element={<TeacherRegister />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/findmyid" element={<FindMyId />} />
+          <Route path="/repassword" element={<Repassword />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path='/' element={<Homepage />} />
+          <Route path="/academy-register" element={<AcademyRegister />} />
+        </Routes>
       <Footer></Footer>
     </BrowserRouter>
     </>

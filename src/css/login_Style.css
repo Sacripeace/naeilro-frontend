@@ -1,6 +1,6 @@
 .container_outbox_01{
     width: 100%;
-    height: 800px;
+    min-height: calc(100vh - 160px);  /* height → min-height */
     display: flex;
     justify-content: center;
     align-items: center;
