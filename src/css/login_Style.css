@@ -8,7 +8,7 @@
 
 .div1{
     width: 1000px;
-    height: 768px;
+    height: 730px;
     background-color: #87CEFA;
     border-radius: 30px;
     display: flex;
@@ -18,14 +18,14 @@
 
 .login_outbox_01{
     width: 455px;
-    height: 650px;
+    height: 680px;
     border-radius: 30px;
     background-color: #ffffff27;
     display: flex;
     flex-direction: column;
     padding: 40px 60px;
     box-sizing: border-box;
-    margin: 0px 0px 0px 60px;
+    margin: 0px auto 0px auto;
 }
 
 .login_text_01{
@@ -40,8 +40,9 @@
 }
 
 .title_13px{
-    font-size: 13px;
+    font-size: 18px;
     margin-bottom: 8px;
+    font-weight: bold;
 }
 
 #button{
@@ -59,11 +60,12 @@
 }
 
 .text_13px{
-    font-size: 13px;
+    font-size: 14px;
     color: #ae4700;
     margin-bottom: 12px;
     cursor: pointer;
     text-decoration: none;
+    font-weight: bold;
 }
 
 
