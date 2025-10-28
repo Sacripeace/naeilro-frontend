@@ -48,7 +48,7 @@ function Signup(){
 
                     <div className="container_outbox_02">
                         <div className="slogan_logo_01">
-                            <img className="Logo" src="./images/naillo_logo.png" />
+                            <img className="Logo" src="./images/naillo_logo.png" alt="" />
                             
                         </div>
                     
