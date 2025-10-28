@@ -10,9 +10,10 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { CiLocationOn } from "react-icons/ci";
 import data from '../datas/academy_data.json'
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function Homepage() {
+    const {uid} = useParams();
     const [isOpen, setIsOpen] = useState(false);
     const [isOpen2,setIsOpen2] = useState(false);
     const [selectedRegion, setSelectedRegion] = useState(null);
@@ -49,7 +50,7 @@ function Homepage() {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
         >
-        <SwiperSlide><img src='/images/banner2.png' alt=''></img></SwiperSlide>
+        <SwiperSlide><img src='/images/banner2.jpeg' alt=''></img></SwiperSlide>
         <SwiperSlide><a href='https://www.gov.kr/portal/rcvfvrSvc/dtlEx/149200005007'><img src='/images/banner3.png' alt=''></img></a></SwiperSlide>
         <SwiperSlide><img src='/images/banner1.jpeg' alt=''></img></SwiperSlide>
         <SwiperSlide><img src='/images/banner4.jpeg' alt=''></img></SwiperSlide>
@@ -88,7 +89,8 @@ function Homepage() {
                         </div>
                         <div className='container-courses'>
                             {data.map(item => (
-                                <div key={item.id} className='courses'>
+                                <Link to={`/academy/${item.uid}`}className='courses'>
+                                <div key={item.id} >
                                     <img 
                                         src={item.image}
                                         alt={item.title || 'course image'}
@@ -98,6 +100,7 @@ function Homepage() {
                                         <p>{item.subject_name}</p>
                                     </div>
                                 </div>
+                                </Link>
                             ))}
                         </div>
                     </div>

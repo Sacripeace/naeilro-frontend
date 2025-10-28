@@ -51,6 +51,9 @@
 
 .academy {
   font-size: 18px;
+  margin-top: 14px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .container2 {
@@ -123,6 +126,14 @@
   border-radius: 15px;
   overflow: hidden;
   flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.courses:hover {
+  transform: scale(1.05);
 }
 
 .courses img {
@@ -141,15 +152,11 @@
 .course-info h3 {
   margin: 0 0 10px 0;
   font-size: 18px;
+  text-decoration: none;
 }
 
 .course-info p {
   margin: 0;
-  color: #666;
+  color: black;
   font-size: 14px;
-}
-
-.academy {
-  margin-top: 14px;
-  text-decoration: none;
 }
