@@ -9,8 +9,18 @@ import "../css/Homepage.css"
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { CiLocationOn } from "react-icons/ci";
 import data from '../datas/academy_data.json'
+import { useState } from 'react';
 
 function Homepage() {
+    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen2,setIsOpen2] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+    const toggleDropdown2 = () => {
+        setIsOpen2(!isOpen2);
+    };
 
     return(
         <main>
@@ -39,58 +49,42 @@ function Homepage() {
         <SwiperSlide>Slide 8</SwiperSlide>
         <SwiperSlide>Slide 9</SwiperSlide>
                 </Swiper>
+                <div className='title-box'>
                     <h1 className='search'>나의 학원 찾기</h1>
                     <p className='academy'>학원 등록+</p>
+                </div>
                     <div>
                         <div className='container2'>
                             <div className='func'>
-                                <div className='region'><CiLocationOn />지역</div>
-                                <div className='reg'>
-                                    <div className='region-01'>전호</div>
+                                <div className='region' onClick={toggleDropdown}><CiLocationOn />지역</div>
+                                <div className='reg'style={{ maxHeight: isOpen ? '200px' : '0px'}}>
+                                    <div className='region-01'>천호</div>
                                     <div className='region-01'>강동</div>
                                 </div>
                             </div>
                             <div className='func'>
-                                <div className='subject'>과목</div>
-                                    <div className='reg'>
-                                        <div className='region-01'>JAVA</div>
-                                        <div className=' region-01'>AI</div>
-                                        <div className=' region-01'>Game Developing</div>
+                                <div className='subject' onClick={toggleDropdown2}>과목</div>
+                                    <div className='reg1' style={{ maxHeight: isOpen2 ? '200px' : '0px'}}>
+                                        <div className='region-01'>Java</div>
+                                        <div className=' region-01'>AI 개발</div>
+                                        <div className=' region-01'>게임 개발</div>
                                     </div>
                             </div>
                         </div>
                         <div className='container-courses'>
-                                <div className='courses'>
+                            {data.map(item => (
+                                <div key={item.id} className='courses'>
                                     <img 
-                                    src={data[0].image}
-                                    alt='there is no image'/>
+                                        src={item.image}
+                                        alt={item.title || 'course image'}
+                                    />
+                                    <div className='course-info'>
+                                        <h3>{item.academy_name}</h3>
+                                        <p>{item.subject_name}</p>
+                                    </div>
                                 </div>
-                                <div className='courses'>
-                                    <img 
-                                    src={data[1].image}
-                                    alt='there is no image'/>
-                                </div>
-                                <div className='courses'>
-                                    <img 
-                                    src={data[2].image}
-                                    alt='there is no image'/>
-                                </div>
-                                <div className='courses'>
-                                    <img 
-                                    src={data[3].image}
-                                    alt='there is no image'/>
-                                </div>
-                                <div className='courses'>
-                                    <img 
-                                    src={data[4].image}
-                                    alt='there is no image'/>
-                                </div>
-                                <div className='courses'>
-                                    <img 
-                                    src={data[5].image}
-                                    alt='there is no image'/>
-                                </div>
-                            </div>
+                            ))}
+                        </div>
                     </div>
             </div>
         </main>

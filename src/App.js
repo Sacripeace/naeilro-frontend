@@ -28,10 +28,8 @@ function App() {
         <Route path="/findmyid" element={<FindMyId />} />
         <Route path="/repassword" element={<Repassword />} />
         <Route path="/signup" element={<Signup />} />
-
-        <Route path='/homepage' element={<Homepage />} />
+        <Route path='/' element={<Homepage />} />
         <Route path="/academy-register" element={<AcademyRegister />} />
-
       </Routes>
       <Footer></Footer>
     </BrowserRouter>

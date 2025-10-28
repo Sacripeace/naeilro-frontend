@@ -65,11 +65,11 @@ function Header(){
                 <div>
                     <div>
                         <div>
-                        <Link to={"/homepage"}>
+                        <Link to={"/"}>
                             <img src="/images/naillo_logo.png" alt="Logo"></img>
                             </Link>
                         </div>
-                        <Link to={"/homepage"}>
+                        <Link to={"/"}>
                         <p>
                             내일로
                         </p>
