@@ -66,10 +66,7 @@
     text-decoration: none;
 }
 
-.header_login_text{
-    text-decoration: none;
-    color: white;
-}
+
 
 
 .login_btn, .findmyid_btn, #Link{
@@ -160,6 +157,12 @@
     /* background-color: gray; */
     padding-top: 20px;
     box-sizing: border-box;
+}
+
+.Header_Logo{
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: auto ;
 }
 
 .Logo{

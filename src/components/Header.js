@@ -25,25 +25,36 @@ const HeaderWrapper = styled.div`
         text-decoration : none;
     }
 
-    & > div > a > img{
+    & > div > div > img{
         width : 38px;
         height : 44px;
         cursor: pointer;
+        background-repeat: no-repeat;
+        background-size: auto ;
     }
 
-    & > div > a > p{
+    & > div > div > p{
         font-size : 28px;
         color : white;
         margin-left : 6px;
         font-weight : bold;
         cursor: pointer;
+        text-decoration: none;
     }
     
-    & > div > a{
+    & > div > p{
         font-size : 12px;
         color : white;
         cursor: pointer;
+        text-decoration: none;
+        color: white;
     }
+
+    & a{
+        color : white;
+        text-decoration: none;
+    }
+
 `
 
 
@@ -52,10 +63,10 @@ function Header(){
         <main>
             <HeaderWrapper>
                 <div>
-                    <Link to="/">
+                    <div>
                         <img src="/images/naillo_logo.png" alt="Logo"></img>
                         <p>내일로</p>
-                    </Link>
+                    </div>
                     <Link to="/login" className="header_login_text">로그인</Link>
                 </div>
             </HeaderWrapper>
