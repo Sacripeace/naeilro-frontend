@@ -58,23 +58,17 @@
 }
 
 .region {
-  width: 557px;
+  display: flex;
+  width: 580px;
   height: 40px;
   background-color: #F5F6FA;
   border: #BFBFBF solid 1px;
   text-align: start;
   font-weight: 16px;
-  padding: 20px 0px 0px 23px;
-}
-
-.subject {
-  width: 557px;
-  height: 40px;
-  background-color: #F5F6FA;
-  border: #BFBFBF solid 1px;
-  text-align: start;
-  font-weight: 16px;
-  padding: 20px 0px 0px 23px;
+  padding: 0px 0px 0px 12px;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .func {
@@ -96,12 +90,24 @@
 
 
 .region-01 {
+  display: flex;
   width: 290px;
   height: 43px;
   background-color: #F5F6FA;
   border: #BFBFBF solid 1px;
   text-align: center;
-  padding-top: 23px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.region-01:hover {
+  color: white;
+  background-color: black;
+}
+.region-01.active {
+  color: white;
+  background-color: black;
 }
 
 .container-courses {
@@ -144,5 +150,6 @@
 }
 
 .academy {
+  margin-top: 14px;
   text-decoration: none;
 }

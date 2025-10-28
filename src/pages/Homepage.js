@@ -15,6 +15,15 @@ import { Link } from 'react-router-dom';
 function Homepage() {
     const [isOpen, setIsOpen] = useState(false);
     const [isOpen2,setIsOpen2] = useState(false);
+    const [selectedRegion, setSelectedRegion] = useState(null);
+    const [selectedCourse, setSelectedCourse] = useState(null);
+
+    const handleRegionClick = (region) => {
+    setSelectedRegion(selectedRegion === region ? null : region);
+    };
+    const handleCourseClick = (course) => {
+        setSelectedCourse(selectedCourse === course ? null : course);
+    };
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
@@ -30,7 +39,7 @@ function Homepage() {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-        delay: 2500,
+        delay: 4000,
         disableOnInteraction: false,
         }}
         pagination={{
@@ -40,15 +49,10 @@ function Homepage() {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
         >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        <SwiperSlide><img src='/images/banner2.png' alt=''></img></SwiperSlide>
+        <SwiperSlide><a href='https://www.gov.kr/portal/rcvfvrSvc/dtlEx/149200005007'><img src='/images/banner3.png' alt=''></img></a></SwiperSlide>
+        <SwiperSlide><img src='/images/banner1.jpeg' alt=''></img></SwiperSlide>
+        <SwiperSlide><img src='/images/banner4.jpeg' alt=''></img></SwiperSlide>
                 </Swiper>
                 <div className='title-box'>
                     <h1 className='search'>나의 학원 찾기</h1>
@@ -62,16 +66,23 @@ function Homepage() {
                             <div className='func'>
                                 <div className='region' onClick={toggleDropdown}><CiLocationOn />지역</div>
                                 <div className='reg'style={{ maxHeight: isOpen ? '200px' : '0px'}}>
-                                    <div className='region-01'>천호</div>
-                                    <div className='region-01'>강동</div>
+                                    <div className={`region-01 ${selectedRegion === '천호' ? 'active' : ''}`}
+                                        onClick={() => handleRegionClick('천호')}>천호
+                                    </div>
+                                    <div className={`region-01 ${selectedRegion === '강동' ? 'active' : ''}`}
+                                        onClick={() => handleRegionClick('강동')}>강동
+                                    </div>
                                 </div>
                             </div>
                             <div className='func'>
-                                <div className='subject' onClick={toggleDropdown2}>과목</div>
+                                <div className='region' onClick={toggleDropdown2}>과목</div>
                                     <div className='reg1' style={{ maxHeight: isOpen2 ? '200px' : '0px'}}>
-                                        <div className='region-01'>Java</div>
-                                        <div className=' region-01'>AI 개발</div>
-                                        <div className=' region-01'>게임 개발</div>
+                                        <div className={`region-01 ${selectedCourse === 'Java' ? 'active' : ''}`}
+                                            onClick={() => handleCourseClick('Java')}>Java</div>
+                                        <div className={`region-01 ${selectedCourse === 'AI' ? 'active' : ''}`}
+                                        onClick={() => handleCourseClick('AI')}>AI 개발</div>
+                                        <div className={`region-01 ${selectedCourse === '게임 개발' ? 'active' : ''}`}
+                                        onClick={() => handleCourseClick('게임 개발')}>게임 개발</div>
                                     </div>
                             </div>
                         </div>
