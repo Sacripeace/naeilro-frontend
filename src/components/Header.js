@@ -26,7 +26,7 @@ const HeaderWrapper = styled.div`
     }
 
     & > div > a > img{
-        width : 38px;
+        
         height : 44px;
         cursor: pointer;
         background-repeat: no-repeat;
