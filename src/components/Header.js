@@ -25,7 +25,7 @@ const HeaderWrapper = styled.div`
         text-decoration : none;
     }
 
-    & > div > div > img{
+    & > div > a > img{
         width : 38px;
         height : 44px;
         cursor: pointer;
@@ -33,7 +33,7 @@ const HeaderWrapper = styled.div`
         background-size: auto ;
     }
 
-    & > div > div > p{
+    & > div > a > p{
         font-size : 28px;
         color : white;
         margin-left : 6px;
@@ -63,18 +63,10 @@ function Header(){
         <main>
             <HeaderWrapper>
                 <div>
-                    <div>
-                        <div>
-                        <Link to={"/"}>
-                            <img src="/images/naillo_logo.png" alt="Logo"></img>
-                            </Link>
-                        </div>
-                        <Link to={"/"}>
-                        <p>
-                            내일로
-                        </p>
-                        </Link>
-                    </div>
+                    <Link to="/">
+                        <img src="/images/naillo_logo.png" alt="Logo"></img>
+                        <p>내일로</p>
+                    </Link>
                     <Link to="/login" className="header_login_text">로그인</Link>
                 </div>
             </HeaderWrapper>
