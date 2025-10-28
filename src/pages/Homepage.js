@@ -10,10 +10,9 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { CiLocationOn } from "react-icons/ci";
 import data from '../datas/academy_data.json'
 import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 function Homepage() {
-    const {uid} = useParams();
     const [isOpen, setIsOpen] = useState(false);
     const [isOpen2,setIsOpen2] = useState(false);
     const [selectedRegion, setSelectedRegion] = useState(null);
