@@ -28,14 +28,14 @@ const FooterWrapper = styled.div`
 
 function Footer(){
     return(
-        <main>
+        <footer>
         <FooterWrapper>
             <div>
                 <p>내일로</p>
                 <p>Copy Right 2025</p>
             </div>
         </FooterWrapper>
-        </main>
+        </footer>
     );
 }
 

@@ -60,7 +60,7 @@ const HeaderWrapper = styled.div`
 
 function Header(){
     return(
-        <main>
+        <header>
             <HeaderWrapper>
                 <div>
                     <Link to="/">
@@ -70,7 +70,7 @@ function Header(){
                     <Link to="/login" className="header_login_text">로그인</Link>
                 </div>
             </HeaderWrapper>
-        </main>
+        </header>
     );
 }
 
