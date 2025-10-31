@@ -1,50 +1,144 @@
 import { Link } from "react-router-dom";
 import "../css/login_Style.css";
+import React, { useState } from "react";
+import axios from "axios";
 
 function Repassword(){
+    const [form, setForm] = useState({
+        admin_id: "",
+        password: "",
+        confirmPassword: "",
+        businessName:"",
+        phone:"",
+        email:"",
+    });
+
+    const [error, setError] = useState("");
+
+    // 입력값 변경 핸들러
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm({ ...form, [name]: value });
+    };
+
+    // 폼 제출 (비밀번호 재설정)
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+    
+    // 비밀번호 확인 일치 검사
+    if (form.password !== form.confirmPassword) {
+        setError("비밀번호가 일치하지 않습니다.");
+        return;
+    }
+
+    try {
+        const response = await axios.post("/api/reset-password", form);
+
+        if (response.status === 200) {
+            alert("비밀번호가 수정되었습니다."); //팝업알림
+            window.location.href = "/login"; //로그인 페이지로 이동
+        } else {
+            setError("입력하신 정보가 일치하지 않습니다.");
+        }
+        } catch (err) {
+            setError("서버 오류가 발생했습니다.");
+        }
+    };
+
+        
+    
+
     return(
         <main>
-
             <div className="container_outbox_01">
                 <div className="div1">
-
                     <div className="login_outbox_01">
                         <div className="findmyid_container_text_01">
                             <Link to="/findmyid" className="findmyid_title_02">관리자 ID 찾기</Link>
                             <div className="repassword_01">비밀번호 재설정</div>
                         </div>
                         
+                        {/* form시작 */}
+                        <form onSubmit={handleSubmit}>
                         <div className="login_box_01">
                             <div className="title_13px">관리자 아이디</div>
-                            <input type="text" id="userid" name="userid" placeholder="아이디를 입력하세요."/>
+                            <input 
+                                className="userid"
+                                type="text"
+                                name="admin_id"
+                                placeholder="아이디를 입력하세요."
+                                value={form.admin_id}
+                                onChange={handleChange}
+                                / >
                         </div>
 
 
                         <div className="login_box_01">
                             <div className="title_13px">암호</div>
-                            <input type="password" id="password" name="password" placeholder="비밀번호를를 입력하세요."/>
+                            <input
+                                className="password"
+                                type="password"
+                                name="password"
+                                placeholder="비밀번호를 입력하세요."
+                                value={form.password}
+                                onChange={handleChange}
+                            />
                         </div>
 
                         <div className="login_box_01">
                             <div className="title_13px">암호확인</div>
-                            <input type="password" id="password" name="password" placeholder="비밀번호를 다시한번 더 입력하세요."/>
+                            <input
+                                className="password"
+                                type="password"
+                                name="confirmPassword"
+                                placeholder="비밀번호를 다시 한번 입력하세요."
+                                value={form.confirmPassword}
+                                onChange={handleChange}
+                                />
                         </div>
 
 
                         <div className="login_box_01">
                             <div className="title_13px">사업자명</div>
-                            <input type="text" id="name" name="name" placeholder="등록하신 성함을 입력하세요."/>
+                            <input
+                                className="name"
+                                type="text"
+                                name="businessName"
+                                placeholder="등록한 업체명을 입력하세요."
+                                value={form.businessName}
+                                onChange={handleChange}
+                                />
                         </div>
 
                         <div className="login_box_01">
                             <div className="title_13px">전화번호</div>
-                            <input type="text" id="number" name="number" placeholder="등록하신 전화번호를 입력하세요."/>
+                            <input
+                                className="number"
+                                type="text"
+                                name="phone"
+                                placeholder="등록하신 전화번호를 입력하세요."
+                                value={form.phone}
+                                onChange={handleChange}
+                                />
                         </div>
 
                         <div className="login_box_01">
                             <div className="title_13px">이메일주소</div>
-                            <input type="text" id="email" name="email" placeholder="등록하신 이메일주소를 입력하세요."/>
+                            <input 
+                                className="email"
+                                type="text"
+                                name="email"
+                                placeholder="등록하신 이메일 주소를 입력하세요."
+                                value={form.email}
+                                onChange={handleChange}
+                                />
                         </div>
+
+                        {error && (
+                            <div className="warning_text" style={{ color: "red" }}>
+                                {error}
+                                </div>
+                        )}
 
 
 
@@ -52,9 +146,11 @@ function Repassword(){
                            <button type="submit" className="login_btn">비밀번호 재설정</button>
 
                         <div className="login_box_01">
-                            <div className="warning_text">최초 가입시 등록한 정보와 다르게 입력하시면<p></p> 비밀번호는 재등록 불가합니다. 정확하게 기입해주세요. </div>
+                            <div className="warning_text">최초 가입시 등록한 정보와 다르게 입력하시면<br />
+                            비밀번호는 재등록 불가합니다. 정확하게 기입해주세요.
+                            </div>
                         </div>
-
+                        </form>
                 </div>
 
                     <div className="container_outbox_02">

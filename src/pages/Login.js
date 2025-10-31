@@ -1,25 +1,59 @@
+import { useState } from "react";
 import "../css/login_Style.css";
-import { Link } from "react-router-dom";
-
-
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
+
+  const [form, setForm] = useState ({
+    admin_id: "",
+    password: "",
+  });
+
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]:value });
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("/login", form);
+
+      if (response.status === 200 && response.date.success) {
+        // 로그인 성공시 처리
+        alert("로그인 되었습니다.");
+        navigate("/dashboard");
+      } else {
+        setError("아이디 또는 비밀번호가 일치하지 않습니다.");
+      }
+    } catch (err) {
+      setError("서버 오류가 발생되었습니다.");
+    }
+  };
+
   return (
     <main>
       <div className="container_outbox_01">
         <div className="div1">
-          
           {/* 왼쪽: 로그인 영역 */}
           <div className="login_outbox_01">
             <div className="login_text_01">관리자 로그인</div>
 
+            <form onSubmit={handleLogin}>
             <div className="login_box_01">
               <div className="title_13px">아이디</div>
               <input 
                 type="text" 
-                id="userid" 
-                name="userid" 
+                className="userid" 
+                name="admin_id" 
                 placeholder="아이디를 입력하세요." 
+                value={form.admin_id}
+                onChange={handleChange}
               />
             </div>
 
@@ -27,18 +61,31 @@ function Login() {
               <div className="title_13px">암호</div>
               <input 
                 type="password" 
-                id="password" 
+                className="password" 
                 name="password" 
                 placeholder="비밀번호를 입력하세요." 
+                value={form.password}
+                onChange={handleChange}
               />
             </div>
 
             <div className="login_box_02">
-              <Link to="/findmyid" className="find_my_id_text">아이디찾기</Link>
+              <Link to="/findmyid" className="find_my_id_text">
+                아이디찾기
+              </Link>
               <button type="submit" className="login_btn">
                 확인
               </button>
             </div>
+
+            {/* 에러 메시지 */}
+            {error && (
+              <div className="warning_text" style={{ color: "red", marginTop: "10px"}}>
+                {error}
+              </div>
+            )}
+
+            </form>
 
 
             {/* 회원가입 링크 */}
@@ -60,12 +107,16 @@ function Login() {
                 alt="내일로 로고" 
               />
             </div>
+
             <div className="slogan_text_01">
               "배움을 통해 내일로 나아가는 플랫폼"
             </div>
             <div className="slogan_text_01">
               Learn today, Lead Tomorrow.
             </div>
+
+
+
           </div>
 
         </div>

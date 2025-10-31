@@ -1,7 +1,41 @@
 import { Link } from "react-router-dom";
 import "../css/login_Style.css";
+import React, { useState } from "react";
+import axios from 'axios';
+
 
 function FindMyId(){
+
+    const [form, setForm] = useState({
+    businessName: '',
+    phone: '',
+    email: '',
+  });
+
+  const [resultId, setResultId] = useState(null);
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleFindId = async () => {
+    try {
+      const response = await axios.post('/api/find-admin-id', form);
+      if (response.data && response.data.admin_id) {
+        setResultId(response.data.admin_id);
+        setError('');
+      } else {
+        setResultId(null);
+        setError('아이디를 조회할 수 없습니다.');
+      }
+    } catch (err) {
+      setResultId(null);
+      setError('서버 오류가 발생했습니다.');
+    }
+  };
+
     return(
         <main>
 
@@ -16,36 +50,62 @@ function FindMyId(){
                         </div>
                                 <div className="login_box_01">
                                     <div className="title_13px">사업자명</div>
-                                    <input type="text" id="name" name="name" placeholder="성함을 입력하세요."/>
+                                    <input
+                                    type="text"
+                                    className="name"
+                                    name="businessName"
+                                    placeholder="사업자명을 입력하세요."
+                                    value={form.businessName}
+                                    onChange={handleChange}
+                                    />
                                 </div>
 
                                 <div className="login_box_01">
                                     <div className="title_13px">전화번호</div>
-                                    <input type="text" id="number" name="number" placeholder="전화번호를 입력하세요."/>
+                                    <input
+                                    type="text"
+                                    className="number"
+                                    name="phone"
+                                    placeholder="전화번호를 입력하세요."
+                                    value={form.phone}
+                                    onChange={handleChange}
+                                    />
                                 </div>
 
                                 <div className="login_box_01">
                                     <div className="title_13px">이메일주소</div>
-                                    <input type="text" id="email" name="email" placeholder="이메일주소를 입력하세요."/>
+                                    <input
+                                    type="text"
+                                    className="email"
+                                    name="email"
+                                    placeholder="이메일주소를 입력하세요."
+                                    value={form.email}
+                                    onChange={handleChange}
+                                    />
                                 </div>
 
                         
-                           <button type="submit" className="findmyid_btn">관리자 ID 찾기</button>
+                           <button onClick={handleFindId} type="submit" className="findmyid_btn">관리자 ID 찾기</button>
 
 {/* 아래 코드는 위 조건에 맞는 결과값을 아래 칸에서 보여주는 칸입니다.  */}
 {/* 현재는 보여주지만 자바나 자바 스크립트를 통해서 결과값을 보여주는 방식으로 표현해야함. */}
-                        <div className="findmyidbox_container">
-                            <div className="you_id">당신의 아이디는 아래와 같습니다.</div>
-                            <div className="findmyidbox">qwerasdf</div>
-                            {/* 아이디영역을 클릭하면 복사해주는 기능 */}
-                           <Link to="/login" type="submit" className="findmyid_btn">로그인</Link>
 
-                        </div>
+{/* 아래코드는 조회시 결과 나오는 코드임 */}
+      {/* 결과 메시지 */}
+      {resultId && (
+        <div style={{ marginTop: '20px' }}>
+          <p>당신의 아이디는 아래와 같습니다.</p>
+          <input type="text" value={resultId} readOnly />
+          <br />
+          <button>로그인</button>
+        </div>
+      )}
 
-
-
-                </div>
-
+      {/* 실패 메시지 */}
+      {error && !resultId && (
+        <div style={{ marginTop: '20px', color: 'red' }}>{error}</div>
+      )}
+</div>
 
 
 
@@ -56,6 +116,7 @@ function FindMyId(){
                             </img>
                         </div>
                     
+
                         <div className="slogan_text_01">“배움을 통해 내일로 나아가는 플랫폼”</div>
                         <div className="slogan_text_01"> Learn today, Lead Tomorrow. </div>
                     
