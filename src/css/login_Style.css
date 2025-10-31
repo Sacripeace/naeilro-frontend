@@ -101,6 +101,10 @@
     text-decoration: none;
 }
 
+.header_login_text{
+    text-decoration: none;
+}
+
 .login_btn:hover, .findmyid_btn:hover{
     background-color: #3154b8;
 }
@@ -162,11 +166,6 @@
     flex-direction: column;
     
 }
-
-/* 슬로건 효과 CSS */
-
-
-
 .slogan_logo_01{
     display: flex;
     justify-content: center;

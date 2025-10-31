@@ -16,32 +16,28 @@ const HeaderWrapper = styled.div`
     width: 1160px;
   }
 
-  & div > a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-  }
-
   & div > a > img {
     height: 44px;
     cursor: pointer;
   }
 
-  & div > a > p {
+  & div > a {
     font-size: 28px;
     color: white;
     margin-left: 6px;
     font-weight: bold;
+    text-decoration: none;
   }
+
+  .
 
   .header_login_text {
     font-size: 14px;
-    color: white !important;
+    color: white;
     cursor: pointer;
     background: none;
     border: none;
     margin-left: 20px;
-    text-decoration: none;
   }
 `;
 
