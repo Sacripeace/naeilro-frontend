@@ -1,174 +1,214 @@
 import { useState } from "react";
 import "../css/login_Style.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Signup(){
+    const navigate = useNavigate();
 
     const [form, setForm] = useState({
         admin_id: "",
         password: "",
         confirmPassword: "",
-        business_name: "",
-        phone:"",
-        email:""
-
+        academy_name: "",
+        phoneNumber: "",
+        email: ""
     });
 
     const [error, setError] = useState("");
 
     // 정규식 검사
-const validateId = (id) => /^[a-zA-Z0-9]{5,20}$/.test(id);
-  const validatePassword = (pw) => /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+=-]).{8,}$/.test(pw);
+    const validateId = (id) => /^[a-zA-Z0-9]{5,20}$/.test(id);
+    const validatePassword = (pw) => /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+=-]).{8,}$/.test(pw);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-  };
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm({ ...form, [name]: value });
+    };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    if (!validateId(form.admin_id)) {
-      setError("아이디는 5~20자의 영문자 또는 숫자여야 합니다.");
-      return;
-    }
+        // 유효성 검사
+        if (!validateId(form.admin_id)) {
+            setError("아이디는 5~20자의 영문자 또는 숫자여야 합니다.");
+            return;
+        }
 
-    if (!validatePassword(form.password)) {
-      setError("비밀번호는 영문자, 숫자, 특수문자를 포함해 8자 이상이어야 합니다.");
-      return;
-    }
+        if (!validatePassword(form.password)) {
+            setError("비밀번호는 영문자, 숫자, 특수문자를 포함해 8자 이상이어야 합니다.");
+            return;
+        }
 
-    if (form.password !== form.confirmPassword) {
-      setError("비밀번호가 일치하지 않습니다.");
-      return;
-    }
+        if (form.password !== form.confirmPassword) {
+            setError("비밀번호가 일치하지 않습니다.");
+            return;
+        }
 
-    if (!form.business_name)  {
-      setError("사업자명을 기재해주세요.");
-      return;
-    }
+        if (!form.academy_name) {
+            setError("사업자명을 기재해주세요.");
+            return;
+        }
 
-    if (!form.phone) {
-      setError("전화번호를 입력하세요.");
-      return;
-    }
+        if (!form.phoneNumber) {
+            setError("전화번호를 입력하세요.");
+            return;
+        }
 
-    if (!form.email) {
-      setError("이메일을 등록하세요.");
-      return;
-    }
+        if (!form.email) {
+            setError("이메일을 등록하세요.");
+            return;
+        }
 
-    setError("");
-    alert("회원가입 성공");
-    // TODO: 서버로 axios POST 요청 보내기
-  };
+        setError("");
 
+        // 서버로 전송할 데이터
+        const requestData = {
+            adminId: form.admin_id,
+            password: form.password,
+            academyName: form.academy_name,
+            phoneNumber: form.phoneNumber,
+            email: form.email,
+        };
+
+        try {
+            await axios.post(
+                "http://localhost:8080/signup",
+                requestData
+            );
+            alert("회원가입 성공!");
+            setForm({
+                admin_id: "",
+                password: "",
+                confirmPassword: "",
+                academy_name: "",
+                phoneNumber: "",
+                email: ""
+            });
+
+            navigate("/login");
+        } catch (error) {
+  if (!error.response) {
+    setError("서버에 연결할 수 없습니다.");
+    return;
+        }
+
+        const { status, data } = error.response;
+
+        if (status === 409) {
+          setError("이미 존재하는 아이디입니다.");
+          return;
+        }
+
+        let msg = "회원가입 실패";
+        if (typeof data === "string") {
+          msg = data;
+        } else if (data && typeof data === "object") {
+          msg = data.message || data.error || msg;
+        }
+        setError(msg);
+        }
+    };
 
     return(
         <main>
-
             <div className="container_outbox_01">
                 <div className="div1">
                     <form onSubmit={handleSubmit}>
-                    <div className="login_outbox_01">
-                        <div className="login_text_01">회원가입</div>
-                        <div className="login_box_01">
-                            <div className="title_13px">관리자 아이디</div>
-                            <input 
-                                type="text" 
-                                className="userid" 
-                                name="admin_id" 
-                                placeholder="아이디는 5~20자의 영문자 또는 숫자여야 합니다."
-                                value={form.admin_id}
-                                onChange={handleChange}
+                        <div className="login_outbox_01">
+                            <div className="login_text_01">회원가입</div>
+                            
+                            <div className="login_box_01">
+                                <div className="title_13px">관리자 아이디</div>
+                                <input 
+                                    type="text" 
+                                    className="userid" 
+                                    name="admin_id" 
+                                    placeholder="아이디는 5~20자의 영문자 또는 숫자여야 합니다."
+                                    value={form.admin_id}
+                                    onChange={handleChange}
                                 />
-                        </div>
+                            </div>
 
-                        <div className="login_box_01">
-                            <div className="title_13px">암호</div>
-                            <input 
-                                type="password" 
-                                className="password" 
-                                name="password" 
-                                placeholder="영문자, 숫자, 특수문자를 포함해 8자 이상이어야 합니다."
-                                value={form.password}
-                                onChange={handleChange}
+                            <div className="login_box_01">
+                                <div className="title_13px">암호</div>
+                                <input 
+                                    type="password" 
+                                    className="password" 
+                                    name="password" 
+                                    placeholder="영문자, 숫자, 특수문자를 포함해 8자 이상이어야 합니다."
+                                    value={form.password}
+                                    onChange={handleChange}
                                 />
-                        </div>
+                            </div>
 
-                        <div className="login_box_01">
-                            <div className="title_13px">암호확인</div>
-                            <input 
-                                type="password" 
-                                className="password" 
-                                name="confirmPassword" 
-                                placeholder="비밀번호를 다시한번 더 입력하세요."
-                                value={form.confirmPassword}
-                                onChange={handleChange}
+                            <div className="login_box_01">
+                                <div className="title_13px">암호확인</div>
+                                <input 
+                                    type="password" 
+                                    className="password" 
+                                    name="confirmPassword" 
+                                    placeholder="비밀번호를 다시한번 더 입력하세요."
+                                    value={form.confirmPassword}
+                                    onChange={handleChange}
                                 />
-                        </div>
+                            </div>
 
-
-                        <div className="login_box_01">
-                            <div className="title_13px">사업자명</div>
-                            <input 
-                                type="text" 
-                                className="name" 
-                                name="business_name" 
-                                placeholder="성함을 입력하세요."
-                                value={form.business_name}
-                                onChange={handleChange}
+                            <div className="login_box_01">
+                                <div className="title_13px">사업자명</div>
+                                <input 
+                                    type="text" 
+                                    className="name" 
+                                    name="academy_name" 
+                                    placeholder="성함을 입력하세요."
+                                    value={form.academy_name}
+                                    onChange={handleChange}
                                 />
-                        </div>
+                            </div>
 
-                        <div className="login_box_01">
-                            <div className="title_13px">전화번호</div>
-                            <input 
-                                type="text" 
-                                className="number" 
-                                name="phone" 
-                                placeholder="전화번호를 입력하세요."
-                                value={form.phone}
-                                onChange={handleChange}
+                            <div className="login_box_01">
+                                <div className="title_13px">전화번호</div>
+                                <input 
+                                    type="text" 
+                                    className="number" 
+                                    name="phoneNumber" 
+                                    placeholder="전화번호를 입력하세요."
+                                    value={form.phoneNumber}
+                                    onChange={handleChange}
                                 />
-                        </div>
+                            </div>
 
-                        <div className="login_box_01">
-                            <div className="title_13px">이메일주소</div>
-                            <input 
-                                type="text" 
-                                className="email" 
-                                name="email" 
-                                placeholder="이메일주소를 입력하세요."
-                                value={form.email}
-                                onChange={handleChange}
+                            <div className="login_box_01">
+                                <div className="title_13px">이메일주소</div>
+                                <input 
+                                    type="text" 
+                                    className="email" 
+                                    name="email" 
+                                    placeholder="이메일주소를 입력하세요."
+                                    value={form.email}
+                                    onChange={handleChange}
                                 />
-                        </div>
-                        
-                           <button type="submit" className="login_btn">확인</button>
+                            </div>
+                            
+                            <button type="submit" className="login_btn">확인</button>
 
-        {/* 에러 메시지 */}
-              {error && (
-                <div className="warning_text" style={{ color: "red", marginTop: "10px" }}>
-                  {error}
-                </div>
-              )}
-                </div>
-                </form>
+                            {error && (
+                                <div className="warning_text" style={{ color: "red", marginTop: "10px" }}>
+                                    {error}
+                                </div>
+                            )}
+                        </div>
+                    </form>
 
                     <div className="container_outbox_02">
                         <div className="slogan_logo_01">
                             <img className="Logo" src="./images/naillo_logo.png" alt="" />
-                            
                         </div>
-                    
-                        <div className="slogan_text_01">“배움을 통해 내일로 나아가는 플랫폼”</div>
+                        <div className="slogan_text_01">"배움을 통해 내일로 나아가는 플랫폼"</div>
                         <div className="slogan_text_01"> Learn today, Lead Tomorrow. </div>
-                    
                     </div>
                 </div>  
             </div>
-
-
         </main>
     );
 }

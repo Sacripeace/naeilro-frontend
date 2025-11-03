@@ -6,7 +6,7 @@ import axios from "axios";
 function Login() {
 
   const [form, setForm] = useState ({
-    admin_id: "",
+    adminId: "",
     password: "",
   });
 
@@ -22,17 +22,22 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("/login", form);
+      const response = await axios.post("http://localhost:8080/login", form);
 
-      if (response.status === 200 && response.date.success) {
-        // 로그인 성공시 처리
+      if (response.status === 200) {
         alert("로그인 되었습니다.");
-        navigate("/dashboard");
+        navigate("/");
       } else {
         setError("아이디 또는 비밀번호가 일치하지 않습니다.");
       }
     } catch (err) {
-      setError("서버 오류가 발생되었습니다.");
+      if (err.response?.status === 401) {
+      setError("아이디 또는 비밀번호가 일치하지 않습니다.");
+    } else if (err.response?.status === 400) {
+      setError("아이디와 비밀번호를 모두 입력해주세요.");
+    } else {
+      setError("서버 오류가 발생했습니다.");
+    }
     }
   };
 
@@ -50,9 +55,9 @@ function Login() {
               <input 
                 type="text" 
                 className="userid" 
-                name="admin_id" 
+                name="adminId" 
                 placeholder="아이디를 입력하세요." 
-                value={form.admin_id}
+                value={form.adminId}
                 onChange={handleChange}
               />
             </div>
