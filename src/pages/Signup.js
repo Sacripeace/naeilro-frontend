@@ -119,6 +119,19 @@ function Signup(){
                     <div className="form-box">
                         <div className="form-title">회원가입</div>
                         <div className="form-group">
+
+
+
+{/* DB와 IntelliJ, React 연동 확인 코드 */}
+{/* DB와 IntelliJ, React 연동 확인 코드 */}
+{/* DB와 IntelliJ, React 연동 확인 코드 */}
+{/* DB와 IntelliJ, React 연동 확인 코드 */}
+{/* DB와 IntelliJ, React 연동 확인 코드 */}
+
+
+
+
+
                             <div className="input-label">관리자 아이디</div>
                             <input 
                                 type="text" 
@@ -160,9 +173,9 @@ function Signup(){
                             <input 
                                 type="text" 
                                 className="input-field" 
-                                name="businessName" 
+                                name="academyName" 
                                 placeholder="성함을 입력하세요."
-                                value={form.businessName}
+                                value={form.academyName}
                                 onChange={handleChange}
                                 />
                             </div>
@@ -172,9 +185,9 @@ function Signup(){
                             <input 
                                 type="text" 
                                 className="input-field" 
-                                name="phone" 
+                                name="phoneNumber" 
                                 placeholder="전화번호를 입력하세요."
-                                value={form.phone}
+                                value={form.phoneNumber}
                                 onChange={handleChange}
                                 />
                             </div>

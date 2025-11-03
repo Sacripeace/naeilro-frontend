@@ -86,6 +86,10 @@ function Homepage() {
                                     </div>
                             </div>
                         </div>
+
+                        {/* DB와 IntelliJ, React 연동 확인 코드 */}
+                        {/* DB와 IntelliJ, React 연동 확인 코드 */}
+
                         <div className='container-courses'>
                             {data.map(item => (
                                 <Link to={`/academy/${item.uid}`}className='courses'>

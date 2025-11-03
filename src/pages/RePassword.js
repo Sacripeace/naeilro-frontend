@@ -8,8 +8,8 @@ function Repassword(){
         adminId: "",
         password: "",
         confirmPassword: "",
-        businessName:"",
-        phone:"",
+        academyName:"",
+        phoneNumber:"",
         email:"",
     });
 
@@ -58,6 +58,19 @@ function Repassword(){
                             <div className="link-repassword-title">비밀번호 재설정</div>
                         </div>
                         
+
+
+
+
+{/* DB와 IntelliJ, React 연동 확인 코드 */}
+{/* DB와 IntelliJ, React 연동 확인 코드 */}
+{/* DB와 IntelliJ, React 연동 확인 코드 */}
+{/* DB와 IntelliJ, React 연동 확인 코드 */}
+
+
+
+
+
                         {/* form시작 */}
                         <form onSubmit={handleSubmit}>
                         <div className="form-group">
@@ -103,9 +116,9 @@ function Repassword(){
                             <input
                                 className="input-field"
                                 type="text"
-                                name="businessName"
+                                name="academyName"
                                 placeholder="등록한 업체명을 입력하세요."
-                                value={form.businessName}
+                                value={form.academyName}
                                 onChange={handleChange}
                                 />
                         </div>
@@ -115,9 +128,9 @@ function Repassword(){
                             <input
                                 className="input-field"
                                 type="text"
-                                name="phone"
+                                name="phoneNumber"
                                 placeholder="등록하신 전화번호를 입력하세요."
-                                value={form.phone}
+                                value={form.phoneNumber}
                                 onChange={handleChange}
                                 />
                         </div>

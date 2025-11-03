@@ -20,6 +20,11 @@ function AcademyRegister(){
                     <div>
                         <div>
                             <p>학원명</p>
+
+                        {/* DB와 IntelliJ, React 연동 확인 코드 */}
+                        {/* DB와 IntelliJ, React 연동 확인 코드 */}
+                        {/* DB와 IntelliJ, React 연동 확인 코드 */}
+
                             <input placeholder='학원명을 입력해 주세요.'></input>
                         </div>
                         <div>

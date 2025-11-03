@@ -7,8 +7,8 @@ import axios from 'axios';
 function FindMyId(){
 
     const [form, setForm] = useState({
-    businessName: '',
-    phone: '',
+    academyName: '',
+    phoneNumber: '',
     email: '',
   });
 
@@ -47,14 +47,18 @@ function FindMyId(){
                             <div className="find-title">관리자 ID 찾기</div>
                             <Link to="/Repassword" className="repassword">비밀번호 재설정</Link>
                         </div>
+
+                        {/* DB와 IntelliJ, React 연동 확인 코드 */}
+                        {/* DB와 IntelliJ, React 연동 확인 코드 */}
+
                                 <div className="form-group">
                                     <div className="input-label">사업자명</div>
                                     <input
                                     type="text"
                                     className="input-field"
-                                    name="businessName"
+                                    name="academyName"
                                     placeholder="사업자명을 입력하세요."
-                                    value={form.businessName}
+                                    value={form.academyName}
                                     onChange={handleChange}
                                     />
                                 </div>
@@ -64,9 +68,9 @@ function FindMyId(){
                                     <input
                                     type="text"
                                     className="input-field"
-                                    name="phone"
+                                    name="phoneNumber"
                                     placeholder="전화번호를 입력하세요."
-                                    value={form.phone}
+                                    value={form.phoneNumber}
                                     onChange={handleChange}
                                     />
                                 </div>

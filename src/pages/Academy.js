@@ -22,6 +22,12 @@ function Academy(){
                     <p>{academy.academy_name}</p>
                     <div>
                         <div>
+
+                            {/* DB와 IntelliJ, React 연동 확인 코드 */}
+                            {/* DB와 IntelliJ, React 연동 확인 코드 */}
+                            {/* DB와 IntelliJ, React 연동 확인 코드 */}
+
+                            
                             <p>과목 : {academy.subject_name}</p>
                             <p>전화번호 : {academy.phone_number}</p>
                             <p>주소 : {academy.address}</p>
@@ -50,6 +56,8 @@ function Academy(){
                 <a href='/teacher-register'>강좌 추가 하기</a>
             </div>
             <div className='teacher-container'>
+                
+                {/* DB와 React 연동 확인 코드 */}
                 {academy.teacher.map((t, index) => (
                     <div key={index} className='card'>
                         <img src={t.image} alt={t.teacher_name} />
