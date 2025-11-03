@@ -43,18 +43,18 @@ function Login() {
 
   return (
     <main>
-      <div className="container_outbox_01">
-        <div className="div1">
+      <div className="page-container">
+        <div className="form-layout">
           {/* 왼쪽: 로그인 영역 */}
-          <div className="login_outbox_01">
-            <div className="login_text_01">관리자 로그인</div>
+          <div className="form-box">
+            <div className="form-title">관리자 로그인</div>
 
             <form onSubmit={handleLogin}>
-            <div className="login_box_01">
-              <div className="title_13px">아이디</div>
+            <div className="form-group">
+              <div className="input-label">아이디</div>
               <input 
                 type="text" 
-                className="userid" 
+                className="input-field" 
                 name="adminId" 
                 placeholder="아이디를 입력하세요." 
                 value={form.adminId}
@@ -62,11 +62,11 @@ function Login() {
               />
             </div>
 
-            <div className="login_box_01">
-              <div className="title_13px">암호</div>
+            <div className="form-group">
+              <div className="input-label">암호</div>
               <input 
                 type="password" 
-                className="password" 
+                className="input-field" 
                 name="password" 
                 placeholder="비밀번호를 입력하세요." 
                 value={form.password}
@@ -74,18 +74,18 @@ function Login() {
               />
             </div>
 
-            <div className="login_box_02">
-              <Link to="/findmyid" className="find_my_id_text">
+            <div className="form-footer">
+              <Link to="/findmyid" className="link-find-id">
                 아이디찾기
               </Link>
-              <button type="submit" className="login_btn">
+              <button type="submit" className="btn-primary">
                 확인
               </button>
             </div>
 
             {/* 에러 메시지 */}
             {error && (
-              <div className="warning_text" style={{ color: "red", marginTop: "10px"}}>
+              <div className="error-message" style={{ color: "red", marginTop: "10px"}}>
                 {error}
               </div>
             )}
@@ -94,29 +94,29 @@ function Login() {
 
 
             {/* 회원가입 링크 */}
-            <div className="signup_container_box">
-              <div className="signup_box_01">
-                <div className="signup_text_01">관리자 아이디가 없으신가요?</div>
-                <Link to="/signup" className="signup_text_02">회원가입 </Link>
-                <div className="signup_text_01">➔</div>
+            <div className="signup-footer">
+              <div className="signup-footer-box">
+                <div className="signup-text\">관리자 아이디가 없으신가요?</div>
+                <Link to="/signup" className="signup-link">회원가입 </Link>
+                <div className="signup-text\">➔</div>
               </div>
             </div>
           </div>
 
           {/* 오른쪽: 슬로건 / 로고 영역 */}
-          <div className="container_outbox_02">
+          <div className="slogan-section">
             <div className="slogan_logo_01">
               <img 
-                className="Logo" 
+                className="logo-img" 
                 src="./images/naillo_logo.png" 
                 alt="내일로 로고" 
               />
             </div>
 
-            <div className="slogan_text_01">
+            <div className="slogan-text">
               "배움을 통해 내일로 나아가는 플랫폼"
             </div>
-            <div className="slogan_text_01">
+            <div className="slogan-text">
               Learn today, Lead Tomorrow.
             </div>
 
