@@ -32,7 +32,7 @@ function Repassword(){
     }
 
     try {
-        const response = await axios.post("/api/reset-password", form);
+        const response = await axios.post("http://localhost:8080/repassword", form);
 
         if (response.status === 200) {
             alert("비밀번호가 수정되었습니다."); //팝업알림

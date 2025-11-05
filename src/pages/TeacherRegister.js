@@ -46,7 +46,7 @@ function TeacherRegister() {
     if (imageFile) formData.append("image", imageFile);
 
     try {
-      await axios.post("http://localhost:8080/api/teacher", formData, {
+      await axios.post("http://localhost:8080/teacher-register", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("강사 등록 완료!");

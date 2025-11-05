@@ -22,7 +22,7 @@ function FindMyId(){
 
   const handleFindId = async () => {
     try {
-      const response = await axios.post('/api/find-admin-id', form);
+      const response = await axios.post('http://localhost:8080/findmyid', form);
       if (response.data && response.data.adminId) {
         setResultId(response.data.adminId);
         setError('');

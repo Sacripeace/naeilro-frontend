@@ -64,7 +64,7 @@ function AcademyRegister() {
     if (imageFile) formData.append("image", imageFile);
 
     try {
-      await axios.post("http://localhost:8080/api/academy", formData, {
+      await axios.post("http://localhost:8080/academy", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("학원 등록 완료!");
