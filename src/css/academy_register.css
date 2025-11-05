@@ -39,6 +39,15 @@
 
 }
 .academyimg{
+    /* 추가된 CSS소스코드 */
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+
+
+    /* 기존 CSS코드  */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -125,9 +134,44 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    
 }
 
 .addressmargin{
     margin-right: 10px;
 }
 
+.image_upload_box {
+  width: 500px;
+  height: 500px;
+  background-color: #F5F6FA;
+  border-radius: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;       /* 🔹 넘치는 이미지 잘라냄 */
+  cursor: pointer;
+}
+
+.image_preview {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;       /* 🔹 비율 유지하며 꽉 채우기 */
+  display: block;
+  border-radius: 12px;
+}
+
+
+.up_line {
+    color: #4169E1;
+    border: 2px solid #4169E1;
+    height: 3px;
+    margin-bottom: 20px;
+}
+
+.down_line {
+    color: #4169E1;
+    border: 2px solid #4169E1;
+    height: 3px;
+    margin-top: 20px;
+}

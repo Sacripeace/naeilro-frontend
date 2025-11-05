@@ -1,20 +1,79 @@
+
 .teacherbody{
     width : 100%;
-    min-height: calc(100vh - 160px);  /* height → min-height */
+    min-height: calc(100vh - 208px);  /* height → min-height */
 }
 
 .teachercontainer{
     width: 1160px;
-    margin : 0 auto;
+    margin : auto;
 }
 
-.teachertitle{
+
+.info_submit_btn {
+  font-size: 24px;
+  padding: 17px 20px;
+  /* background-color: #f0f0f0; */
+  border-radius: 8px 8px 0 0;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.info_submit_btn:hover {
+  background-color: #4169E1;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px 8px 0 0;
+}
+.info_submit_btn.active {
+  background-color: #4169e1;
+  color: white;
+  font-weight: bold;
+}
+
+.info_submit_btn:hover{
+    background-color: #4169E1;
+}
+
+
+.submit_btn{
+    width: 100px;
+    height: 50px;
+    background-color: #4169E1;
+    font-size: 20px;
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    margin-left: auto;
+    cursor: pointer;
+    
+}
+
+.submit_btn:hover{
+    background-color: #304da6;
+}
+
+.info_submit_box{
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 1160px;
     margin-top: 48px;   
 }
+
+.teacherline{
+    width : 1160px;
+    height : 2px;
+    background-color: #4169E1;
+    /* border : 1px solid black; */
+    margin: 10px;
+    box-sizing: border-box;
+    
+}
+
 .teachertitle > button{
     width: 60px;
     height: 36px;
@@ -33,12 +92,176 @@
     margin-top: 12px;
 }
 
-.teacherline{
-    width : 1160px;
-    height : 0px;
-    border : 1px solid black;
-    margin: 16px 0px 34px 0px;
+/* 위 소스는 이전 CSS로 구성됨 */
+
+.teacher_register_outbox{
+    display: flex;
 }
+
+/* 구분창 CSS 성명, 경력, 모집인원, 과목, 과목 설명 */
+.text_lable {
+    width: 100px;
+    line-height: 50px;
+
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+/* INPUT박스 컨테이너 */
+.input_title_outbox{
+    display: flex;
+    gap: 20px;
+    padding: 25px 0px 25px 0px;
+    box-sizing: border-box;
+    
+}
+
+/* 입력창 CSS */
+.input_title{
+
+}
+
+/* INPUT박스 디자인 */
+.input_box_css{
+    width: 500px;
+    height: 50px;
+    font-size: large;
+    border-radius: 10px;
+    border-color: #ededed;
+    /* font-weight: bolder; */
+    padding-left: 10px;
+    
+}
+
+.image_upload_box{
+    display: flex;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bolder;
+    border-radius: 18px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin-left: 25px;
+    
+}
+
+
+
+/* 과목 효과 */
+
+.teachercheckcontainer > button{
+        width: 110px;
+        height: 48px;
+        background-color: white;
+        border-radius: 8px;
+        border: 1px solid black;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover{
+            background-color: black;
+            color: white;
+        }
+}
+
+.teachercheckcontainer button.active {
+  background-color: black;
+  color: white;
+}
+.teachercheckcontainer > button:last-child{
+    border-right: 1px solid black;
+}
+.teacherokcontainer{
+    display: flex;
+    justify-content: right;
+    width : 1160px;
+    margin: 0 auto;
+    margin: 36px 0px 50px 0px;
+}
+
+.subject_title{
+    display: flex;
+    gap: 12px
+}
+
+.subject_title > button{
+    display:flex;
+    font-size: 18px;
+
+    justify-content: center;
+    align-items: center;
+    width: 158px;
+    height: 50px;
+    background-color: #d4d4d4;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.subject_title button.active {
+    background-color: #4169E1;
+    color: #fff;
+    border: 1px solid #4169E1;
+    font-weight: bold;
+}
+
+.subject-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  height: 50px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* 각 과목 별 스타일 */
+.subject-0 {
+  background-color: #ffb347; /* 게임 개발 */
+}
+
+.subject-1 {
+  background-color: #90ee90; /* AI 개발 */
+}
+
+.subject-2 {
+  background-color: #87cefa; /* Java */
+}
+
+/* 선택된 상태 */
+.subject-btn.active {
+  border: 2px solid black;
+  font-weight: bold;
+  transform: scale(1.05);
+}
+
+
+/* 학원&강사 구분선 디자인 CSS*/
+.up_line {
+    color: #4169E1;
+    border: 2px solid #4169E1;
+    height: 3px;
+    margin-bottom: 20px;
+}
+
+.down_line {
+    color: #4169E1;
+    border: 2px solid #4169E1;
+    height: 3px;
+    margin-top: 20px;
+}
+
+
+/* 
+
 .teachercontent{
     display: flex;
     justify-content: space-between;
@@ -141,4 +364,4 @@
     cursor: pointer;
 }
 
-
+ */
