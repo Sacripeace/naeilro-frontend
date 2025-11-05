@@ -10,9 +10,15 @@ function Academy(){
 
     useEffect(() => {
      axios.get(`http://localhost:8080/academy/${aUid}`)
-        .then(res => setAcademy(res.data))   // academy.teachers 까지 포함
+        .then(res => {
+            console.log("🔍 실제 응답 데이터:", res.data);
+            console.log("🔍 academyName:", res.data.academyName);
+            console.log("🔍 현재 aUid:", aUid);
+            setAcademy(res.data)})
+        
         .catch(console.error)
         .finally(() => setLoading(false));
+        
     }, [aUid]);
 
     if (loading) {
