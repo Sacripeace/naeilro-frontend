@@ -11,9 +11,6 @@ function Academy(){
     useEffect(() => {
      axios.get(`http://localhost:8080/academy/${aUid}`)
         .then(res => {
-            console.log("🔍 실제 응답 데이터:", res.data);
-            console.log("🔍 academyName:", res.data.academyName);
-            console.log("🔍 현재 aUid:", aUid);
             setAcademy(res.data)})
         
         .catch(console.error)
@@ -45,6 +42,7 @@ function Academy(){
                                 <p>과목 : {academy.subjectsTitle}</p>
                                 <p>전화번호 : {academy.phoneNumber}</p>
                                 <p>주소 : {academy.address}</p>
+                                <p>위치</p>
                             </div>
                         </div>
                         {academy.address && (

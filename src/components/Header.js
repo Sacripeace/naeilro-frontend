@@ -15,6 +15,7 @@ const HeaderWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 1160px;
+    margin : 0 auto;
   }
 
   & div > a {
