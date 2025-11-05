@@ -12,25 +12,28 @@ import FindMyId from './pages/FindMyId';
 import Repassword from './pages/RePassword';
 import Signup from './pages/Signup';
 import ScrollToTop from './components/ScrollToTop';
+import { AuthProvider } from './context/AuthContext';
 
 
 function App() {
   return (   
     <>
     <BrowserRouter>
-      <ScrollToTop></ScrollToTop>
-      <Header></Header>
-        <Routes>
-          <Route path="/academy/:uid" element={<Academy />} />
-          <Route path="/teacher-register" element={<TeacherRegister />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/findmyid" element={<FindMyId />} />
-          <Route path="/repassword" element={<Repassword />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path='/' element={<Homepage />} />
-          <Route path="/academy-register" element={<AcademyRegister />} />
-        </Routes>
-      <Footer></Footer>
+      <AuthProvider>
+        <ScrollToTop></ScrollToTop>
+        <Header></Header>
+          <Routes>
+            <Route path="/academy/:aUid" element={<Academy />} />
+            <Route path="/teacher-register" element={<TeacherRegister />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/findmyid" element={<FindMyId />} />
+            <Route path="/repassword" element={<Repassword />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path='/' element={<Homepage />} />
+            <Route path="/academy-register" element={<AcademyRegister />} />
+          </Routes>
+        <Footer></Footer>
+      </AuthProvider>
     </BrowserRouter>
     </>
   );

@@ -8,15 +8,16 @@ import 'swiper/css/navigation';
 import "../css/Homepage.css"
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { CiLocationOn } from "react-icons/ci";
-import data from '../datas/academy_data.json'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link} from 'react-router-dom';
+import axios from 'axios';
 
 function Homepage() {
     const [isOpen, setIsOpen] = useState(false);
     const [isOpen2,setIsOpen2] = useState(false);
     const [selectedRegion, setSelectedRegion] = useState(null);
     const [selectedCourse, setSelectedCourse] = useState(null);
+    const [academies, setAcademies] = useState([]);
 
     const handleRegionClick = (region) => {
     setSelectedRegion(selectedRegion === region ? null : region);
@@ -31,6 +32,16 @@ function Homepage() {
     const toggleDropdown2 = () => {
         setIsOpen2(!isOpen2);
     };
+
+    useEffect(() => {
+    axios.get("http://localhost:8080/academies")
+      .then(res => {
+        setAcademies(res.data);
+      })
+      .catch(err => {
+        console.error("학원 데이터를 불러오지 못했습니다:", err);
+      });
+  }, []);
 
     return(
         <main>
@@ -91,16 +102,16 @@ function Homepage() {
                         {/* DB와 IntelliJ, React 연동 확인 코드 */}
 
                         <div className='container-courses'>
-                            {data.map(item => (
-                                <Link to={`/academy/${item.uid}`}className='courses'>
-                                <div key={item.id} >
+                            {academies.map(item => (
+                                <Link key={item.adminId} to={`/academy/${item.aUid}`}className='courses'>
+                                <div>
                                     <img 
-                                        src={item.image}
-                                        alt={item.title || 'course image'}
+                                        src={item.academyImage ? `data:image/jpeg;base64,${item.academyImage}` : '/images/default-academy.jpg'}
+                                        alt={item.academyName || 'course image'}
                                     />
                                     <div className='course-info'>
-                                        <h3>{item.academy_name}</h3>
-                                        <p>{item.subject_name}</p>
+                                        <h3>{item.academyName}</h3>
+                                        <p>{item.subjectsTitle}</p>
                                     </div>
                                 </div>
                                 </Link>

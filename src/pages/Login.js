@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "../css/login_Style.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { AuthContext } from "../context/AuthContext";
 
 function Login() {
+
+  const { setIsLoggedIn } = useContext(AuthContext);
 
   const [form, setForm] = useState ({
     adminId: "",
@@ -24,7 +27,11 @@ function Login() {
     try {
       const response = await axios.post("http://localhost:8080/login", form);
 
+      setIsLoggedIn(true);
       if (response.status === 200) {
+      const token = response.data.token;
+      localStorage.setItem("token", token);
+
         alert("로그인 되었습니다.");
         navigate("/");
       } else {
@@ -45,7 +52,6 @@ function Login() {
     <main>
       <div className="page-container">
         <div className="form-layout">
-          {/* 왼쪽: 로그인 영역 */}
           <div className="form-box">
             <div className="form-title">관리자 로그인</div>
 
@@ -83,7 +89,6 @@ function Login() {
               </button>
             </div>
 
-            {/* 에러 메시지 */}
             {error && (
               <div className="error-message" style={{ color: "red", marginTop: "10px"}}>
                 {error}
@@ -92,8 +97,6 @@ function Login() {
 
             </form>
 
-
-            {/* 회원가입 링크 */}
             <div className="signup-footer">
               <div className="signup-footer-box">
                 <div className="signup-text\">관리자 아이디가 없으신가요?</div>
@@ -103,7 +106,6 @@ function Login() {
             </div>
           </div>
 
-          {/* 오른쪽: 슬로건 / 로고 영역 */}
           <div className="slogan-section">
             <div className="slogan_logo_01">
               <img 

@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { AuthContext } from "../context/AuthContext";
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -46,14 +47,9 @@ const HeaderWrapper = styled.div`
 `;
 
 function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const {isLoggedIn, setIsLoggedIn} =useContext(AuthContext);;
   const navigate = useNavigate();
 
-  // 최초 렌더링 시 localStorage에서 token 확인
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
-  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -73,7 +69,6 @@ function Header() {
           <div>
             {isLoggedIn ? (
               <>
-                <Link to="/mypage" className="header_login_text">내 정보</Link>
                 <button onClick={handleLogout} className="header_login_text">로그아웃</button>
               </>
             ) : (
