@@ -7,8 +7,9 @@
     text-align: center;
 }
 .swiper {
-  width: 100%;
+  width: 1160px;
   height: 100%;
+  margin-top: 16px;
 }
 
 .swiper-slide {
@@ -39,19 +40,21 @@
 }
 
 .title-box {
+  width: 1160px;
   display: flex;
   justify-content: space-between;
-  margin: 20px 0px 10px 0px;
+  margin: 0 auto
 }
 
 .search {
   font-size: 32px;
   font-weight: bold;
+  margin: 32px 0px 16px 0px;
 }
 
 .academy {
   font-size: 18px;
-  margin-top: 14px;
+  margin-top: 48px;
   text-decoration: none;
   color: inherit;
 }
@@ -114,10 +117,11 @@
 }
 
 .container-courses {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  overflow: visible;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 1160px;
+  margin : 0 auto;
 }
 
 .courses {

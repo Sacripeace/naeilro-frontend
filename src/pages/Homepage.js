@@ -8,11 +8,11 @@ import 'swiper/css/navigation';
 import "../css/Homepage.css"
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { CiLocationOn } from "react-icons/ci";
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link} from 'react-router-dom';
 import axios from 'axios';
 
-function Homepage() {
+function Homepage() {   
     const [isOpen, setIsOpen] = useState(false);
     const [isOpen2,setIsOpen2] = useState(false);
     const [selectedRegion, setSelectedRegion] = useState(null);
@@ -43,6 +43,23 @@ function Homepage() {
       });
   }, []);
 
+    const norm = (v) => (v ?? "").toString().trim();
+    const filteredAcademies = useMemo(() => {
+    return academies.filter(a => {
+      const addr = norm(a.address);
+      const subject = norm(a.subjectsTitle);
+
+      const regionOk = selectedRegion ? addr.includes(selectedRegion) : true;
+
+      // 과목은 "Java, AI 개발" 같이 저장돼도 대응
+      const courseOk = selectedCourse
+        ? subject.split(/[,/]/).map(s => s.trim()).some(s => s.includes(selectedCourse))
+        : true;
+
+      return regionOk && courseOk;
+    });
+  }, [academies, selectedRegion, selectedCourse]);
+
     return(
         <main>
             <div className="main">
@@ -70,7 +87,6 @@ function Homepage() {
                     <Link to={"/academy-register"} className='academy'>
                     <p>학원 등록+</p>
                     </Link>
-                    
                 </div>
                     <div>
                         <div className='container2'>
@@ -80,8 +96,8 @@ function Homepage() {
                                     <div className={`region-01 ${selectedRegion === '천호' ? 'active' : ''}`}
                                         onClick={() => handleRegionClick('천호')}>천호
                                     </div>
-                                    <div className={`region-01 ${selectedRegion === '강동' ? 'active' : ''}`}
-                                        onClick={() => handleRegionClick('강동')}>강동
+                                    <div className={`region-01 ${selectedRegion === '종로' ? 'active' : ''}`}
+                                        onClick={() => handleRegionClick('종로')}>종로
                                     </div>
                                 </div>
                             </div>
@@ -102,21 +118,28 @@ function Homepage() {
                         {/* DB와 IntelliJ, React 연동 확인 코드 */}
 
                         <div className='container-courses'>
-                            {academies.map(item => (
-                                <Link key={item.adminId} to={`/academy/${item.aUid}`}className='courses'>
+                           {filteredAcademies.length > 0 ? (
+                             filteredAcademies.map(item => (
+                                <Link key={item.aUid} to={`/academy/${item.aUid}`} className='courses'>
                                 <div>
                                     <img 
-                                        src={item.academyImage ? `data:image/jpeg;base64,${item.academyImage}` : '/images/default-academy.jpg'}
-                                        alt={item.academyName || 'course image'}
+                                    src={item.academyImage ? `data:image/jpeg;base64,${item.academyImage}` : '/images/default-academy.jpg'}
+                                    alt={item.academyName || 'course image'}
                                     />
                                     <div className='course-info'>
-                                        <h3>{item.academyName}</h3>
-                                        <p>{item.subjectsTitle}</p>
+                                    <h3>{item.academyName}</h3>
+                                    <p>{item.subjectsTitle}</p>
                                     </div>
                                 </div>
                                 </Link>
-                            ))}
-                        </div>
+                                ))
+                           ) : (
+                            <div className='noacademy'>
+                                <p style={{ padding: 24 }}>조건에 맞는 학원이 없습니다.</p>
+                            </div>
+                           )}
+                         </div>
+                        
                         <div className='viewmore'>
                             <button><img src='/images/down.png' alt='down'></img>더보기</button>
                         </div>
