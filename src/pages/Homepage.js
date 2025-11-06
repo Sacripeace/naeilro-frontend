@@ -51,7 +51,6 @@ function Homepage() {
 
       const regionOk = selectedRegion ? addr.includes(selectedRegion) : true;
 
-      // 과목은 "Java, AI 개발" 같이 저장돼도 대응
       const courseOk = selectedCourse
         ? subject.split(/[,/]/).map(s => s.trim()).some(s => s.includes(selectedCourse))
         : true;

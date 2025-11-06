@@ -9,16 +9,12 @@ function TeacherRegister() {
   const [form, setForm] = useState({
     teacherName: "",
     career: "",
-    capacity: "",
+    teacherSubject: "", // ✅ capacity → teacherSubject
     subjectExplain: "",
   });
 
-  const subjects = ["게임 개발", "AI 개발", "Java"];
-  const [selected, setSelected] = useState(null);
   const [imageFile, setImageFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
-
-  // ✅ 현재 활성화된 메뉴 상태 (강사 or 학원)
   const [activeMenu, setActiveMenu] = useState("teacher");
 
   // ✅ 입력 처리
@@ -37,33 +33,91 @@ function TeacherRegister() {
 
   // ✅ 등록 처리
   const handleSubmit = async () => {
-    const formData = new FormData();
-    formData.append("teacherName", form.teacherName);
-    formData.append("career", form.career);
-    formData.append("capacity", form.capacity);
-    formData.append("subject", subjects[selected] || "");
-    formData.append("subjectExplain", form.subjectExplain);
-    if (imageFile) formData.append("image", imageFile);
+    // 필수 입력 검증
+    if (!form.teacherName.trim()) {
+      alert("성명을 입력해 주세요.");
+      return;
+    }
+    if (!form.career.trim()) {
+      alert("경력을 입력해 주세요.");
+      return;
+    }
+    if (!form.teacherSubject.trim()) {
+      alert("과목을 입력해 주세요.");
+      return;
+    }
+    if (!form.subjectExplain.trim()) {
+      alert("과목설명을 입력해 주세요.");
+      return;
+    }
+    if (!imageFile) {
+      alert("강사님 사진을 등록해 주세요.");
+      return;
+    }
 
     try {
-      await axios.post("http://localhost:8080/teacher-register", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+      // FormData 생성
+      const formData = new FormData();
+      formData.append("teacherName", form.teacherName);
+      formData.append("career", form.career);
+      formData.append("teacherSubject", form.teacherSubject); // ✅ 수정
+      formData.append("subjectExplain", form.subjectExplain);
+      formData.append("capacity", ""); // ✅ 백엔드에서 요구하는 필드 (빈 값)
+      formData.append("aUid", "1"); // ✅ 임시로 1 (세션에서 가져와야 함)
+      formData.append("teacherImage", imageFile);
+      // 강사 정보 등록
+      await axios.post("http://localhost:8080/teacher", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        withCredentials: true,
       });
+
       alert("강사 등록 완료!");
+      
+      // 폼 초기화
+      setForm({
+        teacherName: "",
+        career: "",
+        teacherSubject: "",
+        subjectExplain: "",
+      });
+      setImageFile(null);
+      setPreviewUrl(null);
+      
     } catch (error) {
       console.error("등록 실패:", error);
-      alert("등록 실패");
+      console.error("에러 상세:", error.response);
+
+      if (error.response) {
+        const errorMessage =
+          typeof error.response.data === "string"
+            ? error.response.data
+            : error.response.data?.message || "등록 실패";
+
+        if (error.response.status === 401) {
+          alert("로그인이 필요합니다.");
+          navigate("/login");
+        } else {
+          alert(errorMessage);
+        }
+      } else if (error.request) {
+        alert("서버와 연결할 수 없습니다.");
+      } else {
+        alert("요청 중 오류가 발생했습니다.");
+      }
     }
   };
 
   return (
     <main className="teacherbody">
       <div className="teachercontainer">
-
         {/* 🔷 상단 메뉴 버튼 영역 */}
         <div className="info_submit_box">
           <div
-            className={`info_submit_btn ${activeMenu === "academy" ? "active" : ""}`}
+            className={`info_submit_btn ${
+              activeMenu === "academy" ? "active" : ""
+            }`}
             onClick={() => {
               setActiveMenu("academy");
               navigate("/academy-register");
@@ -72,7 +126,9 @@ function TeacherRegister() {
             학원 정보 등록
           </div>
           <div
-            className={`info_submit_btn ${activeMenu === "teacher" ? "active" : ""}`}
+            className={`info_submit_btn ${
+              activeMenu === "teacher" ? "active" : ""
+            }`}
             onClick={() => {
               setActiveMenu("teacher");
               navigate("/teacher-register");
@@ -86,8 +142,6 @@ function TeacherRegister() {
         </div>
 
         <hr className="up_line"></hr>
-
-        {/* <div className="teacherline"></div> */}
 
         {/* 🔶 강사 등록 내용 */}
         <div className="teacher_register_outbox">
@@ -121,37 +175,16 @@ function TeacherRegister() {
             </div>
 
             <div className="input_title_outbox">
-              <div className="text_lable">모집인원</div>
+              <div className="text_lable">과목</div>
               <div className="input_title">
                 <input
                   type="text"
-                  name="capacity"
-                  value={form.capacity}
+                  name="teacherSubject"
+                  value={form.teacherSubject}
                   onChange={handleChange}
-                  placeholder="모집 인원수를 입력해 주세요."
+                  placeholder="수업하실 과목을 입력해 주세요."
                   className="input_box_css"
                 />
-              </div>
-            </div>
-
-            <div className="input_title_outbox">
-              <div className="text_lable">과목</div>
-              <div>
-                <div className="subject_title">
-                  {subjects.map((subject, index) => (
-                    <button
-                      key={index}
-                      className={`subject-btn ${
-                        selected === index ? "active" : ""
-                      }`}
-                      onClick={() =>
-                        setSelected((prev) => (prev === index ? null : index))
-                      }
-                    >
-                      {subject}
-                    </button>
-                  ))}
-                </div>
               </div>
             </div>
 
@@ -201,8 +234,6 @@ function TeacherRegister() {
         </div>
 
         <hr className="down_line"></hr>
-
-        {/* <div className="teacherline"></div> */}
       </div>
     </main>
   );

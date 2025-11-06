@@ -166,21 +166,6 @@ function AcademyRegister() {
                 />
               </div>
             </div>
-
-            {/* 소개 */}
-            <div className="input_title_outbox">
-              <div className="text_lable">학원소개</div>
-              <div className="input_title">
-                <input
-                  type="text"
-                  name="description"
-                  value={form.description}
-                  onChange={handleChange}
-                  className="input_box_css"
-                  placeholder="학원 소개를 입력해 주세요."
-                />
-              </div>
-            </div>
           </div>
 
           {/* 이미지 등록 */}
