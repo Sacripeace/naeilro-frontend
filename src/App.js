@@ -13,6 +13,10 @@ import Repassword from './pages/RePassword';
 import Signup from './pages/Signup';
 import ScrollToTop from './components/ScrollToTop';
 import { AuthProvider } from './context/AuthContext';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.withCredentials = true;
 
 
 function App() {
