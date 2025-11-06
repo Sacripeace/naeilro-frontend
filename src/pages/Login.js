@@ -25,11 +25,10 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8080/login", form);
-
+      const response = await axios.post("http://localhost:8080/login", form, {withCredentials: true});
       setIsLoggedIn(true);
       if (response.status === 200) {
-      const token = response.data.token;
+      const token = response.data;
       localStorage.setItem("token", token);
 
         alert("로그인 되었습니다.");

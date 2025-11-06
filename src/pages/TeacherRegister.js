@@ -13,8 +13,6 @@ function TeacherRegister() {
     subjectExplain: "",
   });
 
-  const subjects = ["게임 개발", "AI 개발", "Java"];
-  const [selected, setSelected] = useState(null);
   const [imageFile, setImageFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
   const [activeMenu, setActiveMenu] = useState("teacher");
@@ -191,26 +189,6 @@ function TeacherRegister() {
               </div>
             </div>
 
-            <div className="input_title_outbox">
-              <div className="text_lable">과목</div>
-              <div>
-                <div className="subject_title">
-                  {subjects.map((subject, index) => (
-                    <button
-                      key={index}
-                      className={`subject-btn ${
-                        selected === index ? "active" : ""
-                      }`}
-                      onClick={() =>
-                        setSelected((prev) => (prev === index ? null : index))
-                      }
-                    >
-                      {subject}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
 
             <div className="input_title_outbox">
               <div className="text_lable">과목설명</div>
