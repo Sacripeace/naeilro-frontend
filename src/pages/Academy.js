@@ -7,20 +7,47 @@ function Academy(){
     const { aUid } = useParams();
     const [academy, setAcademy] = useState({});
     const [loading, setLoading] = useState(true);
+    const [loggedInAuid, setLoggedInAuid] = useState(null);
 
     useEffect(() => {
-     axios.get(`http://localhost:8080/academy/${aUid}`)
+    axios.get('http://localhost:8080/session', { withCredentials: true })
         .then(res => {
-            setAcademy(res.data)})
-        
+            setLoggedInAuid(res.data.aUid);
+        })
+        .catch(err => {
+            console.error('세션 정보를 가져올 수 없습니다:', err);
+        });
+}, []);
+
+    useEffect(() => {
+        axios.get(`http://localhost:8080/academy/${aUid}`, { withCredentials: true })
+        .then(res => {
+        setAcademy(res.data);
+        })
         .catch(console.error)
         .finally(() => setLoading(false));
-        
     }, [aUid]);
 
     if (loading) {
         return <div>로딩 중...</div>;
     }
+
+    const handleDeleteTeacher = (tUid, teacherName) => {
+        if (window.confirm(`${teacherName} 강사를 삭제하시겠습니까?`)) {
+            axios.delete(`http://localhost:8080/teacher/delete/${tUid}`, { withCredentials: true })
+                .then(res => {
+                    alert('강사가 삭제되었습니다.');
+                    return axios.get(`http://localhost:8080/academy/${aUid}`, { withCredentials: true });
+                })
+                .then(res => {
+                    setAcademy(res.data);
+                })
+                .catch(err => {
+                    console.error('삭제 실패:', err);
+                    alert(err.response?.data || '강사 삭제에 실패했습니다.');
+                });
+        }
+    };
 
     return(
         <main className='academymain'>
@@ -70,7 +97,7 @@ function Academy(){
                             <div key={t.tUid || index} className='card'>
                                 <img 
                                     src={t.teacherImage ? `data:image/jpeg;base64,${t.teacherImage}` : '/images/default-teacher.jpg'} 
-                                    alt={t.teacherName} 
+                                    alt={t.teacherName} a
                                 />
                                 <div className='teacherposition'>
                                     <p>이름 : {t.teacherName}</p>
@@ -80,7 +107,14 @@ function Academy(){
                                 <div className='teacherexplain'>
                                     <Link to={t.subjectExplain || '#'}>해당 과정이 궁금하시다면 Click!</Link>
                                 </div>
-                                <img className='deleteimg' src='/images/delete.png' alt='삭제'></img>
+                                {String(loggedInAuid) === String(academy.aUid) && (
+                                <img
+                                    className='deleteimg'
+                                    src='/images/delete.png'
+                                    alt='삭제'
+                                    onClick={() => handleDeleteTeacher(t.tUid, t.teacherName)}
+                                />
+                            )}
                             </div>
                         ))
                     ) : (
