@@ -79,9 +79,10 @@
     border-radius: 18px;
     padding-top: 20px;
     box-sizing: border-box;
+    position: relative;
 }
 
-.card > img{
+.card > img :first-child{
     width: 216px;
     height: 265px;
     border-radius: 12px;
@@ -136,4 +137,12 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
+}
+
+.deleteimg{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 12px;
+    right: 12px;
 }

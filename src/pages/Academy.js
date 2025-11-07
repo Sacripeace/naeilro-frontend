@@ -65,7 +65,6 @@ function Academy(){
                     <a href='/teacher-register'>강좌 추가 하기</a>
                 </div>
                 <div className='teacher-container'>
-                    {/* academy.teachers로 접근 */}
                     {academy.teachers && academy.teachers.length > 0 ? (
                         academy.teachers.map((t, index) => (
                             <div key={t.tUid || index} className='card'>
@@ -81,6 +80,7 @@ function Academy(){
                                 <div className='teacherexplain'>
                                     <Link to={t.subjectExplain || '#'}>해당 과정이 궁금하시다면 Click!</Link>
                                 </div>
+                                <img className='deleteimg' src='/images/delete.png' alt='삭제'></img>
                             </div>
                         ))
                     ) : (
