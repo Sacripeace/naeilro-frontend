@@ -9,7 +9,7 @@ function TeacherRegister() {
   const [form, setForm] = useState({
     teacherName: "",
     career: "",
-    teacherSubject: "", // ✅ capacity → teacherSubject
+    teacherSubject: "",
     subjectExplain: "",
   });
 
@@ -17,13 +17,13 @@ function TeacherRegister() {
   const [previewUrl, setPreviewUrl] = useState(null);
   const [activeMenu, setActiveMenu] = useState("teacher");
 
-  // ✅ 입력 처리
+  //입력 처리
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  // ✅ 이미지 처리
+  //이미지 처리
   const handleImageChange = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -31,7 +31,7 @@ function TeacherRegister() {
     setPreviewUrl(URL.createObjectURL(file));
   };
 
-  // ✅ 등록 처리
+  //등록 처리
   const handleSubmit = async () => {
     // 필수 입력 검증
     if (!form.teacherName.trim()) {
@@ -60,10 +60,10 @@ function TeacherRegister() {
       const formData = new FormData();
       formData.append("teacherName", form.teacherName);
       formData.append("career", form.career);
-      formData.append("teacherSubject", form.teacherSubject); // ✅ 수정
+      formData.append("teacherSubject", form.teacherSubject);
       formData.append("subjectExplain", form.subjectExplain);
-      formData.append("capacity", ""); // ✅ 백엔드에서 요구하는 필드 (빈 값)
-      formData.append("aUid", "1"); // ✅ 임시로 1 (세션에서 가져와야 함)
+      const aUid = localStorage.getItem("aUid"); 
+      formData.append("aUid", aUid);
       formData.append("teacherImage", imageFile);
       // 강사 정보 등록
       await axios.post("http://localhost:8080/teacher", formData, {
@@ -112,7 +112,7 @@ function TeacherRegister() {
   return (
     <main className="teacherbody">
       <div className="teachercontainer">
-        {/* 🔷 상단 메뉴 버튼 영역 */}
+        {/* 상단 메뉴 버튼 영역 */}
         <div className="info_submit_box">
           <div
             className={`info_submit_btn ${

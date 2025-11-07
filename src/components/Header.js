@@ -48,13 +48,13 @@ const HeaderWrapper = styled.div`
 `;
 
 function Header() {
-  const {isLoggedIn, setIsLoggedIn} =useContext(AuthContext);;
+  const {isLoggedIn, logout} =useContext(AuthContext);;
   const navigate = useNavigate();
 
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    setIsLoggedIn(false);
+    
+    logout();
     navigate("/login");
   };
 

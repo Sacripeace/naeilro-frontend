@@ -6,14 +6,14 @@ import { AuthContext } from "../context/AuthContext";
 
 function Login() {
 
-  const { setIsLoggedIn } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   const [form, setForm] = useState ({
     adminId: "",
     password: "",
   });
 
-  const [error, setError] = useState("");
+  const [error] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -23,27 +23,15 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     try {
-      const response = await axios.post("http://localhost:8080/login", form, {withCredentials: true});
-      setIsLoggedIn(true);
-      if (response.status === 200) {
-      const token = response.data;
-      localStorage.setItem("token", token);
-
-        alert("로그인 되었습니다.");
-        navigate("/");
-      } else {
-        setError("아이디 또는 비밀번호가 일치하지 않습니다.");
-      }
-    } catch (err) {
-      if (err.response?.status === 401) {
-      setError("아이디 또는 비밀번호가 일치하지 않습니다.");
-    } else if (err.response?.status === 400) {
-      setError("아이디와 비밀번호를 모두 입력해주세요.");
-    } else {
-      setError("서버 오류가 발생했습니다.");
-    }
+      await axios.post("http://localhost:8080/login", form, { 
+        withCredentials: true 
+      });
+      login();
+      alert("로그인 성공하셨습니다.");
+      navigate('/');
+    } catch (error) {
+      console.error(error);
     }
   };
 
