@@ -84,7 +84,6 @@ function Homepage() {
                 <div className='title-box'>
                     <h1 className='search'>나의 학원 찾기</h1>
                     <Link to={"/academy-register"} className='academy'>
-                    <p>학원 등록+</p>
                     </Link>
                 </div>
                     <div>

@@ -31,7 +31,7 @@ function Login() {
       alert("로그인 성공하셨습니다.");
       navigate('/');
     } catch (error) {
-      console.error(error);
+      alert("아이디와 비밀번호를 확인해 주세요.")
     }
   };
 
@@ -40,7 +40,7 @@ function Login() {
       <div className="page-container">
         <div className="form-layout">
           <div className="form-box">
-            <div className="form-title">관리자 로그인</div>
+            <div className="form-title">로그인</div>
 
             <form onSubmit={handleLogin}>
             <div className="form-group">
@@ -68,9 +68,11 @@ function Login() {
             </div>
 
             <div className="form-footer">
-              <Link to="/findmyid" className="link-find-id">
-                아이디찾기
-              </Link>
+              <div className="signup-footer-box">
+                <div className="signup-text\">관리자 아이디가 없으신가요?</div>
+                <Link to="/signup" className="signup-link">회원가입 </Link>
+        
+              </div>
               <button type="submit" className="btn-primary">
                 확인
               </button>
@@ -84,13 +86,7 @@ function Login() {
 
             </form>
 
-            <div className="signup-footer">
-              <div className="signup-footer-box">
-                <div className="signup-text\">관리자 아이디가 없으신가요?</div>
-                <Link to="/signup" className="signup-link">회원가입 </Link>
-                <div className="signup-text\">➔</div>
-              </div>
-            </div>
+            
           </div>
 
           <div className="slogan-section">

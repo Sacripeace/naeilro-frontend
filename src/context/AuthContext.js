@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext();
@@ -18,7 +19,15 @@ export function AuthProvider({ children }) {
   };
 
   // 로그아웃 함수
-  const logout = () => {
+  const logout = async () => {
+    try {
+      // 서버에 로그아웃 요청 (세션 끊기)
+      await axios.post("http://localhost:8080/logout", {}, { withCredentials: true });
+    } catch (error) {
+      console.error("로그아웃 실패:", error);
+    }
+
+    // 클라이언트 상태/로컬스토리지 정리
     setIsLoggedIn(false);
     localStorage.removeItem("isLoggedIn");
   };

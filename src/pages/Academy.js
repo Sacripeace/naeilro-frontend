@@ -1,13 +1,35 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link,useNavigate,useParams } from 'react-router-dom';
 import '../css/academy.css';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import { AuthContext } from "../context/AuthContext";
 
 function Academy(){
     const { aUid } = useParams();
     const [academy, setAcademy] = useState({});
     const [loading, setLoading] = useState(true);
     const [loggedInAuid, setLoggedInAuid] = useState(null);
+    const navigate = useNavigate();
+
+    const { logout } = useContext(AuthContext);
+
+    const handleDeleteAcademy = async () => {
+    const ok = window.confirm('정말로 탈퇴하시겠습니까?');
+    if (!ok) return;
+
+    try {
+        await axios.delete("http://localhost:8080/academy/self", { withCredentials: true });
+        alert("회원 탈퇴가 완료되었습니다.");
+
+        localStorage.removeItem("isLoggedIn");
+        logout?.();
+
+        navigate("/");
+    } catch (error) {
+        console.error("탈퇴 실패:", error);
+        alert(error.response?.data || "탈퇴에 실패했습니다.");
+    }
+};
 
     useEffect(() => {
     axios.get('http://localhost:8080/session', { withCredentials: true })
@@ -33,6 +55,7 @@ function Academy(){
     }
 
     const handleDeleteTeacher = (tUid, teacherName) => {
+        console.log('삭제할 tUid:', tUid, 'teacherName:', teacherName);
         if (window.confirm(`${teacherName} 강사를 삭제하시겠습니까?`)) {
             axios.delete(`http://localhost:8080/teacher/delete/${tUid}`, { withCredentials: true })
                 .then(res => {
@@ -54,7 +77,14 @@ function Academy(){
             <div className='academycontainer'>
                 <div className='academytitle'>
                     <p>학원 정보</p>
+                    <div>
+                    {String(loggedInAuid) === String(academy.aUid) && (
+                        <button onClick={handleDeleteAcademy}>회원탈퇴</button>
+                    )}
+                    {String(loggedInAuid) === String(academy.aUid) && (
                     <a href='/academy-register'>학원 정보 수정하기</a>
+                    )}
+                    </div>
                 </div>
                 <div className='academyline'></div>
                 <div className='academyinformation'>
@@ -88,8 +118,10 @@ function Academy(){
                 <div className='academysubline'></div>
 
                 <div className='hometeachertitle'>
-                    <p>모집 중인 강좌</p>
-                    <a href='/teacher-register'>강좌 추가 하기</a>
+                    <p>모집 중인 수업</p>
+                    {String(loggedInAuid) === String(academy.aUid) && (
+                    <a href='/teacher-register/'>수업 추가 하기</a>
+                    )}
                 </div>
                 <div className='teacher-container'>
                     {academy.teachers && academy.teachers.length > 0 ? (
@@ -121,9 +153,6 @@ function Academy(){
                         <p>등록된 강좌가 없습니다.</p>
                     )}
                 </div>
-            </div>
-            <div className='viewmore'>
-                <button><img src='/images/down.png' alt='down'></img>더보기</button>
             </div>
         </main>
     );

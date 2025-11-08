@@ -132,7 +132,7 @@ function Signup(){
 
 
 
-                            <div className="input-label">관리자 아이디</div>
+                            <div className="input-label">아이디</div>
                             <input 
                                 type="text" 
                                 className="input-field" 
@@ -169,7 +169,7 @@ function Signup(){
 
 
                         <div className="form-group">
-                            <div className="input-label">사업자명</div>
+                            <div className="input-label">학원명</div>
                             <input 
                                 type="text" 
                                 className="input-field" 

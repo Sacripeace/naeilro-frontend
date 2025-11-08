@@ -10,13 +10,24 @@ function AcademyRegister() {
     academyName: "",
     subject: "",
     phoneNumber: "",
-    address: "",
-    description: "",
+    address: ""
   });
 
   const [imageFile, setImageFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
   const [activeTab, setActiveTab] = useState("academy");
+  const [aUid, setAUid] = useState();
+
+
+  useEffect(() => {
+    axios.get('http://localhost:8080/session', { withCredentials: true })
+      .then(res => {
+        setAUid(res.data.aUid);
+      })
+      .catch(err => {
+        console.error('세션 정보를 가져올 수 없습니다:', err);
+      });
+  }, []);
 
   // ✅ 회원가입 시 저장된 학원명/연락처 불러오기
   useEffect(() => {
@@ -55,22 +66,50 @@ function AcademyRegister() {
 
   // ✅ 등록 제출
   const handleSubmit = async () => {
+    console.log("=== handleSubmit 시작 ===");
+    console.log("imageFile:", imageFile);
+    console.log("form:", form);
+
+    // 이미지 검증
+    if (!imageFile) {
+      alert("학원 사진을 등록해주세요.");
+      return;
+    }
+
+    // 필수 입력 검증
+    if (!form.academyName || !form.subject || !form.phoneNumber || !form.address) {
+      alert("모든 항목을 입력해주세요.");
+      return;
+    }
+
     const formData = new FormData();
+    formData.append("file", imageFile);  // "image" → "file"
     formData.append("academyName", form.academyName);
-    formData.append("subject", form.subject);
+    formData.append("subjects", form.subject);  // "subject" → "subjects"
     formData.append("phoneNumber", form.phoneNumber);
     formData.append("address", form.address);
-    formData.append("description", form.description);
-    if (imageFile) formData.append("image", imageFile);
+
+    console.log("=== FormData 확인 ===");
+    for (let [key, value] of formData.entries()) {
+      console.log(key, ":", value);
+    }
 
     try {
-      await axios.post("http://localhost:8080/academy", formData, {
+      const response = await axios.patch("http://localhost:8080/academy/upload", formData, {
         headers: { "Content-Type": "multipart/form-data" },
+        withCredentials: true,  // 세션 전송
       });
-      alert("학원 등록 완료!");
+      
+      console.log("성공:", response.data);
+      alert("학원 정보 수정 완료!");
+    
+      navigate(`/academy/${aUid}`);
     } catch (error) {
-      console.error("등록 실패:", error);
-      alert("등록 실패");
+      console.error("=== 에러 상세 ===");
+      console.error("전체 에러:", error);
+      console.error("응답 데이터:", error.response?.data);
+      console.error("응답 상태:", error.response?.status);
+      alert(error.response?.data || "등록 실패");
     }
   };
 
@@ -103,7 +142,6 @@ function AcademyRegister() {
         </div>
 
         <hr className="up_line"></hr>
-        {/* <div className="teacherline"></div> */}
 
         <div className="teacher_register_outbox">
           <div>
@@ -199,7 +237,6 @@ function AcademyRegister() {
         </div>
 
         <hr className="down_line"></hr>
-        {/* <div className="teacherline"></div> */}
       </div>
     </main>
   );
