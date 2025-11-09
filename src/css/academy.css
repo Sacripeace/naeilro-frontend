@@ -84,11 +84,24 @@
     position: relative;
 }
 
-.card > img :first-child{
+.imageboxbox{
+    border-radius: 12px;
+    width: 216px;
+    height: 265px;
+    margin-bottom: 9px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    overflow: hidden;
+}
+
+.imageboxbox > img{
     width: 216px;
     height: 265px;
     border-radius: 12px;
-    margin-bottom: 9px;
+    object-fit: cover;
+    object-position: center;
+    
 }
 
 .teacherposition{

@@ -17,6 +17,9 @@ function TeacherRegister() {
   const [previewUrl, setPreviewUrl] = useState(null);
   const [activeMenu, setActiveMenu] = useState("teacher");
 
+
+
+
   //입력 처리
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -72,8 +75,9 @@ function TeacherRegister() {
         },
         withCredentials: true,
       });
-
       alert("강사 등록 완료!");
+
+      navigate(`/`);
       
       // 폼 초기화
       setForm({

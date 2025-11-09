@@ -16,18 +16,6 @@ function AcademyRegister() {
   const [imageFile, setImageFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
   const [activeTab, setActiveTab] = useState("academy");
-  const [aUid, setAUid] = useState();
-
-
-  useEffect(() => {
-    axios.get('http://localhost:8080/session', { withCredentials: true })
-      .then(res => {
-        setAUid(res.data.aUid);
-      })
-      .catch(err => {
-        console.error('세션 정보를 가져올 수 없습니다:', err);
-      });
-  }, []);
 
   // ✅ 회원가입 시 저장된 학원명/연락처 불러오기
   useEffect(() => {
@@ -103,7 +91,7 @@ function AcademyRegister() {
       console.log("성공:", response.data);
       alert("학원 정보 수정 완료!");
     
-      navigate(`/academy/${aUid}`);
+      navigate(`/teacher-register`);
     } catch (error) {
       console.error("=== 에러 상세 ===");
       console.error("전체 에러:", error);

@@ -121,7 +121,7 @@ function Homepage() {
                                 <Link key={item.aUid} to={`/academy/${item.aUid}`} className='courses'>
                                 <div>
                                     <img 
-                                    src={item.academyImage ? `data:image/jpeg;base64,${item.academyImage}` : '/images/default-academy.jpg'}
+                                    src={item.academyImage ? `data:image/jpeg;base64,${item.academyImage}` : '/images/default-academy.png'}
                                     alt={item.academyName || 'course image'}
                                     />
                                     <div className='course-info'>

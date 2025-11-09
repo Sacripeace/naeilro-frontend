@@ -10,8 +10,6 @@ function Signup(){
         adminId: "",
         password: "",
         confirmPassword: "",
-        academyName: "",
-        phoneNumber: "",
         email: ""
     });
 
@@ -45,15 +43,6 @@ function Signup(){
             return;
         }
 
-        if (!form.academyName) {
-            setError("사업자명을 기재해주세요.");
-            return;
-        }
-
-        if (!form.phoneNumber) {
-            setError("전화번호를 입력하세요.");
-            return;
-        }
 
         if (!form.email) {
             setError("이메일을 등록하세요.");
@@ -66,8 +55,6 @@ function Signup(){
         const requestData = {
             adminId: form.adminId,
             password: form.password,
-            academyName: form.academyName,
-            phoneNumber: form.phoneNumber,
             email: form.email,
         };
 
@@ -81,8 +68,6 @@ function Signup(){
                 adminId: "",
                 password: "",
                 confirmPassword: "",
-                academyName: "",
-                phoneNumber: "",
                 email: ""
             });
 
@@ -167,31 +152,7 @@ function Signup(){
                                 />
                         </div>
 
-
-                        <div className="form-group">
-                            <div className="input-label">학원명</div>
-                            <input 
-                                type="text" 
-                                className="input-field" 
-                                name="academyName" 
-                                placeholder="성함을 입력하세요."
-                                value={form.academyName}
-                                onChange={handleChange}
-                                />
-                            </div>
-
-                        <div className="form-group">
-                            <div className="input-label">전화번호</div>
-                            <input 
-                                type="text" 
-                                className="input-field" 
-                                name="phoneNumber" 
-                                placeholder="전화번호를 입력하세요."
-                                value={form.phoneNumber}
-                                onChange={handleChange}
-                                />
-                            </div>
-
+                    
                         <div className="form-group">
                             <div className="input-label">이메일주소</div>
                             <input 

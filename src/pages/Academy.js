@@ -6,9 +6,10 @@ import { AuthContext } from "../context/AuthContext";
 
 function Academy(){
     const { aUid } = useParams();
-    const [academy, setAcademy] = useState({});
+    const [academy, setAcademy] = useState(null);
     const [loading, setLoading] = useState(true);
     const [loggedInAuid, setLoggedInAuid] = useState(null);
+    const [isReady, setIsReady] = useState(false);
     const navigate = useNavigate();
 
     const { logout } = useContext(AuthContext);
@@ -35,11 +36,13 @@ function Academy(){
     axios.get('http://localhost:8080/session', { withCredentials: true })
         .then(res => {
             setLoggedInAuid(res.data.aUid);
+            setIsReady(true);  // 추가
         })
         .catch(err => {
             console.error('세션 정보를 가져올 수 없습니다:', err);
+            setIsReady(true);  // 추가
         });
-}, []);
+}, [aUid]);
 
     useEffect(() => {
         axios.get(`http://localhost:8080/academy/${aUid}`, { withCredentials: true })
@@ -78,10 +81,10 @@ function Academy(){
                 <div className='academytitle'>
                     <p>학원 정보</p>
                     <div>
-                    {String(loggedInAuid) === String(academy.aUid) && (
+                    {isReady && String(loggedInAuid) === String(aUid) && (
                         <button onClick={handleDeleteAcademy}>회원탈퇴</button>
                     )}
-                    {String(loggedInAuid) === String(academy.aUid) && (
+                    {isReady && String(loggedInAuid) === String(aUid) && (
                     <a href='/academy-register'>학원 정보 수정하기</a>
                     )}
                     </div>
@@ -89,7 +92,7 @@ function Academy(){
                 <div className='academyline'></div>
                 <div className='academyinformation'>
                     <img 
-                        src={academy.academyImage ? `data:image/jpeg;base64,${academy.academyImage}` : '/images/default-academy.jpg'} 
+                        src={academy.academyImage ? `data:image/jpeg;base64,${academy.academyImage}` : '/images/default-academy.png'} 
                         alt='학원 사진'
                     />
                     <div className='informationdetail'>
@@ -119,7 +122,7 @@ function Academy(){
 
                 <div className='hometeachertitle'>
                     <p>모집 중인 수업</p>
-                    {String(loggedInAuid) === String(academy.aUid) && (
+                    {isReady && String(loggedInAuid) === String(aUid) && (
                     <a href='/teacher-register/'>수업 추가 하기</a>
                     )}
                 </div>
@@ -127,10 +130,12 @@ function Academy(){
                     {academy.teachers && academy.teachers.length > 0 ? (
                         academy.teachers.map((t, index) => (
                             <div key={t.tUid || index} className='card'>
-                                <img 
-                                    src={t.teacherImage ? `data:image/jpeg;base64,${t.teacherImage}` : '/images/default-teacher.jpg'} 
-                                    alt={t.teacherName} a
-                                />
+                                <div className='imageboxbox'>
+                                    <img 
+                                        src={t.teacherImage ? `data:image/jpeg;base64,${t.teacherImage}` : '/images/default-teacher.jpg'} 
+                                        alt={t.teacherName} a
+                                    />
+                                </div>
                                 <div className='teacherposition'>
                                     <p>이름 : {t.teacherName}</p>
                                     <p>경력 : {t.career}</p>
