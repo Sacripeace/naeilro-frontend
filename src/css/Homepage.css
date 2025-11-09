@@ -165,3 +165,9 @@
   font-size: 14px;
 }
 
+.noacademy{
+  display: flex;
+  justify-content: center;
+  width: 1160px;
+}
+
